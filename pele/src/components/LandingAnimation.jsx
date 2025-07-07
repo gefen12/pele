@@ -1,0 +1,170 @@
+// src/components/LandingAnimation.jsx
+import { useState } from "react";
+import { motion } from "framer-motion";
+import peleLogo from "../assets/icons/pele-draw.svg"; // פלא logo
+import iconComputer1 from "../assets/icons/computer-icon-2.svg"; // Example icon
+import iconWheel from "../assets/icons/wheel-icon.svg"; 
+import devoloper from "../assets/icons/lomda.svg";
+import iconConnect from "../assets/icons/connect-icon.svg"; 
+import iconPencil1 from "../assets/icons/pencil-icon-2.svg"; 
+import graphicDesign from "../assets/icons/graphic-designer.svg"; 
+import iconPaint from "../assets/icons/paint-icon.svg"; 
+import iconComputer2 from "../assets/icons/computer-icon-1.svg"; 
+import iconPlant from "../assets/icons/plant-icon.svg"; 
+import iconVideo from "../assets/icons/Video-icon.svg";
+import videoEditer from "../assets/icons/video-editor.svg"; 
+import iconLightS from "../assets/icons/light-icon-s.svg"; 
+import iconPencil2 from "../assets/icons/pencil-icon-1.svg"; 
+
+export default function LandingAnimation() {
+  const [showIcon, setShowIcon] = useState(false);
+
+  return (
+    <div className="relative w-screen h-screen bg-white overflow-hidden">
+      {/* פלא logo beating in center */}
+      <motion.img
+        src={peleLogo}
+        alt="פלא"
+        className="w-32 h-32 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+        animate={{ scale: [1.1, 1.2, 1.1] }}
+        transition={{ repeat: 1, duration: 0.7, ease: "easeInOut" }}
+        onAnimationComplete={() => setShowIcon(true)}
+      />
+
+      {/* Bursting icon - manually placed */}
+      {showIcon && (
+        <motion.img
+          src={iconComputer1}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: 110, y: -240, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+        
+      )}
+        {showIcon && (
+        <motion.img
+          src={iconWheel}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: 90, y: -335, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+        
+      )}
+            {showIcon && (
+        <motion.img
+          src={devoloper}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -50, y: -320, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        /> 
+      )}
+                  {showIcon && (
+        <motion.img
+          src={iconConnect}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -140, y: -320, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={iconPencil1}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -260, y: -320, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={graphicDesign}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -240, y: -240, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+         {showIcon && (
+        <motion.img
+          src={iconPaint}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -300, y: -220, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={iconComputer2}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -375, y: -140, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+            {showIcon && (
+        <motion.img
+          src={iconPlant}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -240, y: -20, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={iconVideo}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -340, y: 40, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={videoEditer}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -270, y: 120, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={iconLightS}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -140, y: 120, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={iconPencil2}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -100, y: 180, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+    </div>
+  );
+}
+// This component uses Framer Motion for animations and displays a logo with a burst effect.
