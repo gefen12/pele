@@ -1,6 +1,10 @@
 // src/components/LandingAnimation.jsx
 import { useState } from "react";
 import { motion } from "framer-motion";
+import '../App.css';
+import borderBox from '../assets/borderBox.svg';
+
+
 import peleLogo from "../assets/icons/pele-draw.svg"; // פלא logo
 import iconComputer1 from "../assets/icons/computer-icon-2.svg"; // Example icon
 import iconWheel from "../assets/icons/wheel-icon.svg"; 
@@ -15,9 +19,18 @@ import iconVideo from "../assets/icons/Video-icon.svg";
 import videoEditer from "../assets/icons/video-editor.svg"; 
 import iconLightS from "../assets/icons/light-icon-s.svg"; 
 import iconPencil2 from "../assets/icons/pencil-icon-1.svg"; 
+import iconPost from "../assets/icons/post-icon.svg";
+import digital from "../assets/icons/digital.svg"; 
+import iconComment from "../assets/icons/comment-icon.svg";
+import iconHeart from "../assets/icons/heart-icon.svg"; 
+import photographer from "../assets/icons/photographer.svg";
+import iconCamera from "../assets/icons/camera-icon.svg"; 
+import iconImg from "../assets/icons/img-icon.svg"; 
+import iconLightB from "../assets/icons/light-icon-b.svg";
 
 export default function LandingAnimation() {
   const [showIcon, setShowIcon] = useState(false);
+
 
   return (
     <div className="relative w-screen h-screen bg-white overflow-hidden">
@@ -38,7 +51,7 @@ export default function LandingAnimation() {
           alt="Burst icon"
           className="w-16 h-16 absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
-          animate={{ x: 110, y: -240, opacity: 1 }} // customize this position
+          animate={{ x: 100, y: -260, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
         
@@ -54,16 +67,39 @@ export default function LandingAnimation() {
         />
         
       )}
-            {showIcon && (
-        <motion.img
-          src={devoloper}
-          alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
-          initial={{ x: 0, y: 0, opacity: 0 }}
-          animate={{ x: -50, y: -320, opacity: 1 }} // customize this position
-          transition={{ type: "spring", stiffness: 80, damping: 10 }}
-        /> 
-      )}
+   {showIcon && (
+  <div className="absolute left-1/2 top-1/2">
+    {/* Bursting icon */}
+    <motion.img
+      src={devoloper}
+      alt="Burst icon"
+      className="w-16 h-16"
+      initial={{ x: 0, y: 0, opacity: 0 }}
+      animate={{
+        x: -50,
+        y: -320,
+        opacity: 1,
+        scale: [1, 1.1, 1],
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 80,
+        damping: 10,
+        scale: {
+          delay: 1,
+          duration: 0.8,
+          repeat: 1,
+          ease: "easeInOut",
+        },
+      }}
+  
+    />
+
+
+
+  </div>
+)}
+
                   {showIcon && (
         <motion.img
           src={iconConnect}
@@ -80,7 +116,7 @@ export default function LandingAnimation() {
           alt="Burst icon"
           className="w-16 h-16 absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
-          animate={{ x: -260, y: -320, opacity: 1 }} // customize this position
+          animate={{ x: -245, y: -315, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
@@ -90,8 +126,18 @@ export default function LandingAnimation() {
           alt="Burst icon"
           className="w-16 h-16 absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
-          animate={{ x: -240, y: -240, opacity: 1 }} // customize this position
-          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+          animate={{
+            x: -240,
+            y: -230,
+            opacity: 1,
+            scale: [1, 1.15, 1], 
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            damping: 10,
+            scale: { delay: 1.2, duration: 0.8, repeat: 1, ease: "easeInOut" }, 
+          }}
         />
       )}
          {showIcon && (
@@ -140,8 +186,18 @@ export default function LandingAnimation() {
           alt="Burst icon"
           className="w-16 h-16 absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
-          animate={{ x: -270, y: 120, opacity: 1 }} // customize this position
-          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+          animate={{
+            x: -270,
+            y: 120,
+            opacity: 1,
+            scale: [1, 1.15, 1], 
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            damping: 10,
+            scale: { delay: 1.6, duration: 0.8, repeat: 1, ease: "easeInOut" }, // same delay before beat
+          }}
         />
       )}
         {showIcon && (
@@ -160,10 +216,111 @@ export default function LandingAnimation() {
           alt="Burst icon"
           className="w-16 h-16 absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
-          animate={{ x: -100, y: 180, opacity: 1 }} // customize this position
+          animate={{ x: -110, y: 180, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
+        {showIcon && (
+        <motion.img
+          src={iconPost}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -80, y: 270, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+          {showIcon && (
+        <motion.img
+          src={digital}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{
+            x: 10,
+            y: 150,
+            opacity: 1,
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            damping: 10,
+            scale: { delay: 2, duration: 0.8, repeat: 1, ease: "easeInOut" }, // same delay before beat
+          }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={iconComment}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: -30, y: 140, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+              {showIcon && (
+        <motion.img
+          src={iconHeart}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: 140, y: 165, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+        {showIcon && (
+        <motion.img
+          src={photographer}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{
+            x: 175,
+            y: -10,
+            opacity: 1,
+            scale: [1, 1.15, 1], 
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            damping: 10,
+            scale: { delay: 2.4, duration: 0.8, repeat: 1, ease: "easeInOut" }, // same delay before beat
+          }}
+        />
+      )}
+             {showIcon && (
+        <motion.img
+          src={iconCamera}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: 280, y: -65, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+      {showIcon && (
+        <motion.img
+          src={iconImg}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: 160, y: -120, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+            {showIcon && (
+        <motion.img
+          src={iconLightB}
+          alt="Burst icon"
+          className="w-16 h-16 absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={{ x: 230, y: -225, opacity: 1 }} // customize this position
+          transition={{ type: "spring", stiffness: 80, damping: 10 }}
+        />
+      )}
+      
     </div>
   );
 }

@@ -3,6 +3,34 @@ html, body, #root {
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: #F4E7D5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent scrollbars */
 }
+
+.landing-container {
+  transform: scale(1);
+  transform-origin: center center;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-container {
+    transform: scale(0.5);
+  }
+}
+

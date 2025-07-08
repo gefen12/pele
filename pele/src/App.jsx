@@ -4,9 +4,9 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <LandingAnimation />
-    </div>
+<div >
+  <LandingAnimation />
+</div>
   );
 }
 
