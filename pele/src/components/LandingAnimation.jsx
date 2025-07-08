@@ -1,8 +1,9 @@
 // src/components/LandingAnimation.jsx
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { hover, motion } from "framer-motion";
 import '../App.css';
-import borderBox from '../assets/borderBox.svg';
+import BorderBox from "./BorderBox.jsx"; // Assuming you have a BorderBox component
+
 
 
 import peleLogo from "../assets/icons/pele-draw.svg"; // פלא logo
@@ -30,15 +31,35 @@ import iconLightB from "../assets/icons/light-icon-b.svg";
 
 export default function LandingAnimation() {
   const [showIcon, setShowIcon] = useState(false);
-
+  const [hovered, setHovered] = useState(false);
+const hoverTexts = {
+  dev: "מפתחת לומדה עוסקת בפיתוח מערכות למידה ואתרים אינטראקטיביים, במטרה לייעל תהליכי הכשרה ולהנגיש ידע באופן חווייתי, אפקטיבי ומותאם למשתמש.",
+  video: "עורכת וידאו אחראית על הפקת סרטונים ללמידה והמחשה, בשילוב גרפיקה, קריינות והנפשה.",
+  designer: "מעצבת גרפית מפתחת שפה ויזואלית למוצרי למידה, שומרת על קונספט אחיד, ברור ונעים לעין.",
+  photographer: "צלמת אחראית על תיעוד צילומים ללמידה, עיצוב סביבות צילום ויצירת תמונות איכותיות ואסתטיות.",
+  digital: "משק הדיגיטל אחראי על ניהול התוכן ברשתות החברתיות "
+};
 
   return (
-    <div className="relative w-screen h-screen bg-white overflow-hidden">
+    <div className="relative w-screen h-screen">
+
+{hovered && hoverTexts[hovered] && (
+  <div
+    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+    style={{ direction: "rtl", textAlign: "right" }}
+  >
+    <BorderBox>
+      {hoverTexts[hovered]}
+    </BorderBox>
+  </div>
+
+)}
+
       {/* פלא logo beating in center */}
       <motion.img
         src={peleLogo}
         alt="פלא"
-        className="w-32 h-32 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+        className={`w-32 h-32 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-300 ${hovered ? "opacity-30" : "opacity-100"}`}
         animate={{ scale: [1.1, 1.2, 1.1] }}
         transition={{ repeat: 1, duration: 0.7, ease: "easeInOut" }}
         onAnimationComplete={() => setShowIcon(true)}
@@ -67,13 +88,13 @@ export default function LandingAnimation() {
         />
         
       )}
-   {showIcon && (
-  <div className="absolute left-1/2 top-1/2">
+{showIcon && (
+  <div className="relative left-1/2 top-1/2">
     {/* Bursting icon */}
     <motion.img
       src={devoloper}
       alt="Burst icon"
-      className="w-16 h-16"
+      className="w-16 h-16 cursor-pointer"
       initial={{ x: 0, y: 0, opacity: 0 }}
       animate={{
         x: -50,
@@ -92,13 +113,13 @@ export default function LandingAnimation() {
           ease: "easeInOut",
         },
       }}
-  
+      onMouseEnter={() => setHovered("dev")}
+      onMouseLeave={() => setHovered(null)}
     />
-
-
 
   </div>
 )}
+
 
                   {showIcon && (
         <motion.img
@@ -138,6 +159,8 @@ export default function LandingAnimation() {
             damping: 10,
             scale: { delay: 1.2, duration: 0.8, repeat: 1, ease: "easeInOut" }, 
           }}
+          onMouseEnter={() => setHovered("designer")}
+        onMouseLeave={() => setHovered(null)}
         />
       )}
          {showIcon && (
@@ -198,6 +221,8 @@ export default function LandingAnimation() {
             damping: 10,
             scale: { delay: 1.6, duration: 0.8, repeat: 1, ease: "easeInOut" }, // same delay before beat
           }}
+            onMouseEnter={() => setHovered("video")}
+        onMouseLeave={() => setHovered(null)}
         />
       )}
         {showIcon && (
@@ -248,6 +273,8 @@ export default function LandingAnimation() {
             damping: 10,
             scale: { delay: 2, duration: 0.8, repeat: 1, ease: "easeInOut" }, // same delay before beat
           }}
+            onMouseEnter={() => setHovered("digital")}
+        onMouseLeave={() => setHovered(null)}
         />
       )}
         {showIcon && (
@@ -288,6 +315,8 @@ export default function LandingAnimation() {
             damping: 10,
             scale: { delay: 2.4, duration: 0.8, repeat: 1, ease: "easeInOut" }, // same delay before beat
           }}
+            onMouseEnter={() => setHovered("photographer")}
+        onMouseLeave={() => setHovered(null)}
         />
       )}
              {showIcon && (
