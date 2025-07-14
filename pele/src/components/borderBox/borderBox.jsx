@@ -1,6 +1,7 @@
 import React from 'react';
-import bgFrame from '../assets/borderBox.svg';
+import bgFrame from '../../assets/borderBox.svg';
 import './borderBox.css';
+
 
 export default function BorderBox({ children, className = "" }) {
   return (

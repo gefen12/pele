@@ -1,10 +1,10 @@
 // src/components/LandingAnimation.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { hover, motion } from "framer-motion";
 import '../App.css';
-import BorderBox from "./BorderBox.jsx"; // Assuming you have a BorderBox component
+import BorderBox from "./borderBox/borderBox.jsx"; // Assuming you have a BorderBox component
 
-
+import arrow from "../assets/arrow.svg"; // Arrow icon
 
 import peleLogo from "../assets/icons/pele-draw.svg"; // פלא logo
 import iconComputer1 from "../assets/icons/computer-icon-2.svg"; // Example icon
@@ -29,7 +29,7 @@ import iconCamera from "../assets/icons/camera-icon.svg";
 import iconImg from "../assets/icons/img-icon.svg"; 
 import iconLightB from "../assets/icons/light-icon-b.svg";
 
-export default function LandingAnimation() {
+export default function LandingAnimation({ onAnimationsDone }) {
   const [showIcon, setShowIcon] = useState(false);
   const [hovered, setHovered] = useState(false);
 const hoverTexts = {
@@ -39,6 +39,16 @@ const hoverTexts = {
   photographer: "צלמת אחראית על תיעוד צילומים ללמידה, עיצוב סביבות צילום ויצירת תמונות איכותיות ואסתטיות.",
   digital: "משק הדיגיטל אחראי על ניהול התוכן ברשתות החברתיות "
 };
+
+// After all animations done (e.g., after `setShowIcon(true)`):
+useEffect(() => {
+  if (showIcon) {
+    const timer = setTimeout(() => {
+       onAnimationsDone();
+    }, 1500); // adjust to your animation length
+    return () => clearTimeout(timer);
+  }
+}, [showIcon]);
 
   return (
     <div className="relative w-screen h-screen">
@@ -59,7 +69,7 @@ const hoverTexts = {
       <motion.img
         src={peleLogo}
         alt="פלא"
-        className={`w-32 h-32 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-300 ${hovered ? "opacity-30" : "opacity-100"}`}
+        className={` absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-300 ${hovered ? "opacity-10" : "opacity-100"}`}
         animate={{ scale: [1.1, 1.2, 1.1] }}
         transition={{ repeat: 1, duration: 0.7, ease: "easeInOut" }}
         onAnimationComplete={() => setShowIcon(true)}
@@ -70,7 +80,7 @@ const hoverTexts = {
         <motion.img
           src={iconComputer1}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: 100, y: -260, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -81,7 +91,7 @@ const hoverTexts = {
         <motion.img
           src={iconWheel}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: 90, y: -335, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -94,7 +104,7 @@ const hoverTexts = {
     <motion.img
       src={devoloper}
       alt="Burst icon"
-      className="w-16 h-16 cursor-pointer"
+      className=" cursor-pointer"
       initial={{ x: 0, y: 0, opacity: 0 }}
       animate={{
         x: -50,
@@ -125,7 +135,7 @@ const hoverTexts = {
         <motion.img
           src={iconConnect}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -140, y: -320, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -135,7 +145,7 @@ const hoverTexts = {
         <motion.img
           src={iconPencil1}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -245, y: -315, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -145,7 +155,7 @@ const hoverTexts = {
         <motion.img
           src={graphicDesign}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2 cursor-pointer"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
             x: -240,
@@ -167,7 +177,7 @@ const hoverTexts = {
         <motion.img
           src={iconPaint}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -300, y: -220, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -177,7 +187,7 @@ const hoverTexts = {
         <motion.img
           src={iconComputer2}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -375, y: -140, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -187,7 +197,7 @@ const hoverTexts = {
         <motion.img
           src={iconPlant}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -240, y: -20, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -197,7 +207,7 @@ const hoverTexts = {
         <motion.img
           src={iconVideo}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -340, y: 40, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -207,7 +217,7 @@ const hoverTexts = {
         <motion.img
           src={videoEditer}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2 cursor-pointer"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
             x: -270,
@@ -229,7 +239,7 @@ const hoverTexts = {
         <motion.img
           src={iconLightS}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -140, y: 120, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -239,7 +249,7 @@ const hoverTexts = {
         <motion.img
           src={iconPencil2}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -110, y: 180, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -249,7 +259,7 @@ const hoverTexts = {
         <motion.img
           src={iconPost}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -80, y: 270, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -259,7 +269,7 @@ const hoverTexts = {
         <motion.img
           src={digital}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2 cursor-pointer"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
             x: 10,
@@ -281,7 +291,7 @@ const hoverTexts = {
         <motion.img
           src={iconComment}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: -30, y: 140, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -291,7 +301,7 @@ const hoverTexts = {
         <motion.img
           src={iconHeart}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: 140, y: 165, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -301,7 +311,7 @@ const hoverTexts = {
         <motion.img
           src={photographer}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2 cursor-pointer"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
             x: 175,
@@ -323,7 +333,7 @@ const hoverTexts = {
         <motion.img
           src={iconCamera}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: 280, y: -65, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -333,7 +343,7 @@ const hoverTexts = {
         <motion.img
           src={iconImg}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: 160, y: -120, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
@@ -343,13 +353,12 @@ const hoverTexts = {
         <motion.img
           src={iconLightB}
           alt="Burst icon"
-          className="w-16 h-16 absolute left-1/2 top-1/2"
+          className=" absolute left-1/2 top-1/2"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: 230, y: -225, opacity: 1 }} // customize this position
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-      
     </div>
   );
 }

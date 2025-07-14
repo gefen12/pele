@@ -1,0 +1,54 @@
+/* File: pele/src/components/navBar.css */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Rubik', sans-serif;
+  color: #2461E5;
+  direction: rtl;
+  box-sizing: border-box;
+font-size: 1.4rem;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+z-index: 10;
+
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2461E5;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact a {
+  text-decoration: none;
+  color: #2461E5;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.sparkle-icon {
+  width: 12px;
+  height: 12px;
+}
