@@ -18,7 +18,7 @@ body::-webkit-scrollbar {
 
 html, body, #root {
   width: 100%;
-  height: 100%;
+    height: auto;
   margin: 0;
   padding: 0;
   background-color: #F4E7D5;
@@ -29,19 +29,9 @@ html, body, #root {
   font-family: 'Rubik', sans-serif;
   
 }
-/* .landing-container {
-  transform: scale(1);
-  transform-origin: center center;
-  max-width: 100vw;
-  max-height: 100vh;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+
  .arrow {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -61,4 +51,34 @@ html, body, #root {
     transform: scale(0.5);
   }
 }
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.scroll-arrow {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  z-index: 1000;
+}
 
+/* אנימציית ניעור */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.bounce {
+  animation: bounce 1.5s infinite;
+}
