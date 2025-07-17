@@ -1,9 +1,10 @@
 .gallery-container {
   position: relative;
-  height: 500px;
-  width: 40rem;
+  height: 800px; /* גובה מוגדל */
+  width: 100%; /* רוחב מלא */
+  max-width: 1800px; /* גבול רוחב מקסימלי */
   overflow: hidden;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .gallery-gradient {
@@ -50,14 +51,14 @@
   height: fit-content;
   align-items: center;
   justify-content: center;
-  padding: 8%;
+  padding: 4%;
   backface-visibility: hidden;
 }
 
 .gallery-img {
   pointer-events: none;
-  height: 120px;
-  width: 300px;
+  height: 250px;
+  width: 100%;
   border-radius: 15px;
   border: 3px solid #fff;
   object-fit: cover;
@@ -70,16 +71,23 @@
 }
 
 @media (max-width: 768px) {
-  .gallery-item {
-    padding: 6%;
+  .gallery-container {
+    height: 600px;
   }
+
+  .gallery-item {
+    padding: 4%;
+  }
+
   .gallery-img {
-    height: 100px;
-    width: 220px;
+    height: 180px;
+    width: 360px;
   }
 }
+
 .gallery-header {
   text-align: center;
   font-size: 3rem;
- color: #2461E5;
+  color: #2461E5;
+  /* margin-bottom: 2rem; */
 }

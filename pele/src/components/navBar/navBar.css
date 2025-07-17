@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: 'Rubik', sans-serif;
-  color: #2461E5;
+  /* color: #2461E5; */
   direction: rtl;
   box-sizing: border-box;
 font-size: 1.4rem;
@@ -26,7 +26,7 @@ z-index: 10;
 
 .nav-links a {
   text-decoration: none;
-  color: #2461E5;
+  /* color: #2461E5; */
 }
 
 .nav-links a:hover {
@@ -41,7 +41,7 @@ z-index: 10;
 
 .contact a {
   text-decoration: none;
-  color: #2461E5;
+  /* color: #2461E5; */
 }
 
 .contact a:hover {

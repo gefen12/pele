@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Card from './card.jsx';
 import './cards.css';
 
@@ -40,7 +41,9 @@ export default function Cards() {
           <Card subject="לומדות" bgColor="#FFE5F5" textColor="#F52BA0" />
         </div>
         <div className="card-position right">
+          <Link to="/gallery" style={{ textDecoration: 'none' }}>
           <Card subject="גלריה" bgColor="#E8ECFF" textColor="#2461E5" />
+          </Link>
         </div>
       </div>
     </div>

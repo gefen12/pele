@@ -25,7 +25,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   images = IMGS;
   const [isScreenSizeSm, setIsScreenSizeSm] = useState(window.innerWidth <= 640);
 
-  const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
+  const cylinderWidth = isScreenSizeSm ? 1200 : 3000;
   const faceCount = images.length;
   const faceWidth = (cylinderWidth / faceCount) * 1.5;
   const dragFactor = 0.05;
