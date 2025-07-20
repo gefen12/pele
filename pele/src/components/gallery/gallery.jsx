@@ -129,7 +129,9 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
                 transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
               }}
             >
+            <a href={url} target="_blank" rel="noopener noreferrer">
               <img src={url} alt="gallery" className="gallery-img" />
+            </a>
             </div>
           ))}
         </motion.div>

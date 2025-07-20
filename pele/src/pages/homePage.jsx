@@ -41,9 +41,9 @@ const HomePage = () => {
           onClick={scrollDown}
         />
       )}
-      <Gallery />
+      {/* <Gallery /> */}
       <Cards />
-      <Skills />
+      {/* <Skills /> */}
       <About />
     </div>
   );
