@@ -215,7 +215,8 @@ const Masonry = ({
   ref={containerRef}
   className="relative w-full"
   style={{
-    height: "50vh", // או כל גובה אחר שמתאים
+    height: "100vh", // או גובה ספציפי אם יש לך
+// width: "50vw",
     padding: "1rem", // אופציונלי: ריווח פנימי
     overflow: "hidden", // אם אתה רוצה לחתוך תוכן שגולש
   }}

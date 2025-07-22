@@ -1,4 +1,5 @@
 .about {
+    --main-color: #2461E5;
   padding: 2rem;
   text-align: right;
   direction: rtl;
@@ -22,7 +23,7 @@
 
 .about__headline {
   font-size: 7rem;
-  color: #2461E5;
+   color: var(--main-color);
   /* color: #f52ba0; */
   margin-bottom: 1rem;
 }
@@ -44,7 +45,7 @@
 .about__mail a {
   text-decoration: underline;
   /* text-decoration-color: #f52ba0;  */
-  text-decoration-color: #2461E5;
+  text-decoration-color: var(--main-color);
   color: #000;
 }
 
@@ -74,7 +75,7 @@
 .about__socials a {
   text-decoration: none;
   /* border-bottom: 2px solid #f52ba0; */
-    border-bottom: 2px solid #2461E5;
+    border-bottom: 2px solid var(--main-color);
   color: #000;
   font-size: 1rem;
 }

@@ -3,6 +3,7 @@ import { motion, useMotionValue, useAnimation, useTransform } from "framer-motio
 import "./gallery.css";
 
 const IMGS = [
+  "./src/assets/gallery/tiktok1.gif",
   "./src/assets/gallery/DSC07592.jpg",
     "./src/assets/gallery/DSC07838_edited.jpg",
     "./src/assets/gallery/IMG-20250604-WA0016.jpg",

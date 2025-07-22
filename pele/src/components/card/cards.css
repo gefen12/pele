@@ -60,6 +60,7 @@
 .card-position.right {
   z-index: 0;
 }
+
 @media (max-width: 600px) {
   .card-container.open .left {
     transform: translateX(-120px) rotate(-8deg);

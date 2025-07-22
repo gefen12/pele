@@ -38,13 +38,16 @@ export default function Cards() {
           <Card subject="גרפיקות" bgColor="#EDE5FF" textColor="#6C63FF" />
         </div>
         <div className="card-position center">
-          <Card subject="לומדות" bgColor="#FFE5F5" textColor="#F52BA0" />
+          <Link to="/development" style={{ textDecoration: 'none' }}>
+          <Card subject="דיגיטל" bgColor="#FFE5F5" textColor="#F52BA0" />
+          </Link>
         </div>
         <div className="card-position right">
           <Link to="/gallery" style={{ textDecoration: 'none' }}>
           <Card subject="גלריה" bgColor="#E8ECFF" textColor="#2461E5" />
           </Link>
         </div>
+     
       </div>
     </div>
   );

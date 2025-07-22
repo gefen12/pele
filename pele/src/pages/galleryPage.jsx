@@ -27,20 +27,20 @@ const GalleryPage = () => {
       {
         id: "1",
         img: "./src/assets/gallery/DSC07592.jpg",
-        url: "https://example.com/one",
-        height: 400,
+        url: "./src/assets/gallery/DSC07592.jpg",
+        height: 300,
       },
       {
         id: "2",
         img: "./src/assets/gallery/DSC07838_edited.jpg",
-        url: "https://example.com/two",
-        height: 250,
+        url: "./src/assets/gallery/DSC07838_edited.jpg",
+        height: 350,
       },
       {
         id: "3",
         img: "./src/assets/gallery/IMG-20250604-WA0016.jpg",
-        url: "https://example.com/three",
-        height: 200,
+        url: "./src/assets/gallery/IMG-20250604-WA0016.jpg",
+        height: 250,
       },
       {
         id: "4",
@@ -70,7 +70,7 @@ const GalleryPage = () => {
         id: "8",
         img: "./src/assets/gallery/IMG-20250714-WA0017.jpg",
         url: "https://example.com/eight",
-        height: 250,
+        height: 350,
       },
       {
         id: "9",
@@ -100,14 +100,86 @@ const GalleryPage = () => {
         id: "13",
         img: "./src/assets/gallery/DOC-20250703-WA0024.jpg",
         url: "https://example.com/thirteen",
-        height: 300,
+        height: 400,
       },
       {
         id: "14",
         img: "./src/assets/gallery/DSC07886.jpg",
         url: "https://example.com/fourteen",
-        height: 250,
+        height: 450,
       },
+      {
+        id: "15",
+        img: "./src/assets/gallery/DSC07019.jpg",
+        url: "https://example.com/fifteen",
+        height: 350,
+      },
+      {
+        id: "16",
+        img: "./src/assets/gallery/DSC07838_edited.jpg",
+        url: "https://example.com/sixteen",
+        height: 400,
+      },
+      {
+        id: "17",
+        img: "./src/assets/gallery/IMG-20250610-WA0000.jpg",
+        url: "https://example.com/seventeen",
+        height: 300,
+      },
+      {
+        id: "18",
+        img: "./src/assets/gallery/DSC07886.jpg",
+        url: "https://example.com/eighteen",
+        height: 350,
+      },
+      {
+        id: "19",
+        img: "./src/assets/gallery/IMG-20250714-WA0021.jpg",
+        url: "https://example.com/nineteen",
+        height: 400,
+      },
+      {
+        id: "20",
+        img: "./src/assets/gallery/IMG-20250714-WA0014.jpg",
+        url: "https://example.com/twenty",
+        height: 300,
+      },
+        {
+        id: "21",
+        img: "./src/assets/gallery/DSC07019.jpg",
+        url: "https://example.com/fifteen",
+        height: 350,
+      },
+      {
+        id: "22",
+        img: "./src/assets/gallery/DSC07838_edited.jpg",
+        url: "https://example.com/sixteen",
+        height: 400,
+      },
+      {
+        id: "23",
+        img: "./src/assets/gallery/IMG-20250610-WA0000.jpg",
+        url: "https://example.com/seventeen",
+        height: 300,
+      },
+      {
+        id: "24",
+        img: "./src/assets/gallery/DSC07886.jpg",
+        url: "https://example.com/eighteen",
+        height: 350,
+      },
+      {
+        id: "25",
+        img: "./src/assets/gallery/IMG-20250714-WA0014.jpg",
+        url: "https://example.com/nineteen",
+        height: 400,
+      },
+      {
+        id: "26",
+        img: "./src/assets/gallery/IMG-20250714-WA0021.jpg",
+        url: "https://example.com/twenty",
+        height: 300,
+      }
  
 
 
@@ -115,7 +187,7 @@ const GalleryPage = () => {
   ];
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       {/* <Gallery /> */}
       <main className='pt-[80px] px-4'>
       <Masonry 

@@ -1,0 +1,43 @@
+.dev-wrapper {
+  position: relative;
+  min-height: 150vh;
+  padding: 3rem;
+
+}
+
+.dev-card {
+  position: absolute;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.dev-card:hover {
+  transform: scale(1.04);
+}
+
+.dev-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #2461E5;
+  font-family: monospace;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.dev-card:hover .overlay {
+  opacity: 1;
+}
