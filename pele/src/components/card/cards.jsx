@@ -35,7 +35,7 @@ export default function Cards() {
       </div>
       <div className={`card-container ${scrolled ? 'open' : ''}`}>
         <div className="card-position left">
-          <Card subject="גרפיקות" bgColor="#EDE5FF" textColor="#6C63FF" />
+          <Card subject="מולטימדיה" bgColor="#EDE5FF" textColor="#6C63FF" />
         </div>
         <div className="card-position center">
           <Link to="/development" style={{ textDecoration: 'none' }}>

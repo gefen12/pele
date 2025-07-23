@@ -28,9 +28,11 @@ z-index: 10;
 .nav-links a {
   text-decoration: none;
   color: var(--main-color);
+  position: relative;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   text-decoration: underline;
 }
 
