@@ -15,7 +15,7 @@ export default function DevPage() {
       <Navbar color='#E5249E'/>
       <main>
         <Development />
-        <About color='#E5249E'/>
+        <About color='#E5249E' />
       </main>
     </div>
   );

@@ -70,8 +70,23 @@
     transform: translateX(120px) rotate(8deg);
   }
 
-  .card {
-    width: 90vw;
-    height: auto;
+
+}
+@media (max-width: 900px) {
+  .card-container.open .left {
+    transform: translateX(-230px) translateY(12px) rotate(-8deg);
+  }
+
+  .card-container.open .right {
+    transform: translateX(230px) translateY(12px) rotate(8deg);
+  }
+}
+@media (max-width: 1150px) {
+ .card-container.open .left {
+    transform: translateX(-330px) translateY(16px) rotate(-8deg);
+  }
+
+  .card-container.open .right {
+    transform: translateX(330px) translateY(16px) rotate(8deg);
   }
 }

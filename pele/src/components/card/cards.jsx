@@ -39,7 +39,7 @@ export default function Cards() {
         </div>
         <div className="card-position center">
           <Link to="/development" style={{ textDecoration: 'none' }}>
-          <Card subject="דיגיטל" bgColor="#FFE5F5" textColor="#F52BA0" />
+          <Card subject="לומדות" bgColor="#FFE5F5" textColor="#F52BA0" />
           </Link>
         </div>
         <div className="card-position right">

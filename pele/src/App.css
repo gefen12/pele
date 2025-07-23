@@ -5,6 +5,11 @@
   font-style: normal;
 }
 @font-face {
+  font-family: 'Rubik-regular';
+  src: url('./assets/fonts/Rubik/Rubik-Medium.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
   font-family: 'Alegreya';
   src: url('./assets/fonts/Alegreya.ttf') format('truetype');
   font-style: normal;
@@ -82,3 +87,12 @@ html, body, #root {
 .bounce {
   animation: bounce 1.5s infinite;
 }
+
+.section-header {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--main-color);
+  
+
+}
+

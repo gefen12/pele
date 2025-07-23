@@ -215,19 +215,21 @@ const Masonry = ({
   ref={containerRef}
   className="relative w-full"
   style={{
-    height: "100vh", // או גובה ספציפי אם יש לך
-// width: "50vw",
+    height: "100vh", // או גובה מותאם אישית אחר
     padding: "1rem", // אופציונלי: ריווח פנימי
-    overflow: "hidden", // אם אתה רוצה לחתוך תוכן שגולש
+    // overflow: "hidden", 
   }}
 >
+     <div className="gallery-header">
+          <h2>גלריה</h2>
+        </div>
       {grid.map((item) => (
         <div
           key={item.id}
           data-key={item.id}
           className="absolute box-content"
           style={{ willChange: "transform, width, height, opacity" }}
-          onClick={() => window.open(item.url, "_blank", "noopener")}
+          onClick={() => window.open(item.img, "_blank", "noopener")} //אפשר לשנות את זה לקישור אחר אם משנים ל item.url
           onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
         >
