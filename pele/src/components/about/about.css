@@ -82,6 +82,9 @@
 
 /* Responsive */
 @media (max-width: 600px) {
+  .about{
+    padding: 1rem;
+  }
   .about__headline {
     font-size: 2rem;
   }
@@ -93,9 +96,27 @@
   .about__mail {
     font-size: 1rem;
   }
+  .about__socials {
+    font-size: 0.8rem;
+    gap: 1.2rem;
+  }
+
+  .about__socials a{
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--main-color);
+  }
+
+}
+@media (max-width: 345px) {
 
   .about__socials {
-    flex-direction: column;
-    align-items: flex-start;
+    font-size: 0.7rem;
+    gap: 1rem;
   }
+
+  .about__socials a{
+    font-size: 0.7rem;
+    border-bottom: 1px solid var(--main-color);
+  }
+
 }

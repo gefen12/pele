@@ -20,8 +20,9 @@ const projects = [
   {
     id: 2,
     img: './src/assets/projectImgs/project5.png',
-    top: '55vh',
+    // top: '55vh',
     left: '53vw',
+    top: '20vh',
     // top: '20vh',
     // left: '47vw',
     title: 'לומדת דרקונית',
@@ -33,8 +34,9 @@ const projects = [
   {
     id: 3,
     img: './src/assets/projectImgs/project3.png',
-    top: '90vh',
+    // top: '90vh',
     left: '27vw',
+    top: '57vh',
     // top: '20vh',
     // left: '7vw',
     title: 'לומדת דרקונית',
@@ -46,8 +48,9 @@ const projects = [
     {
     id: 4,
     img: './src/assets/projectImgs/project6.png',
-    top: '125vh',
+    // top: '125vh',
     left: '53vw',
+    top: '57vh',
     //  top: '20vh',
     // left: '67vw',
     title: 'לומדת טקטיקה',
@@ -86,7 +89,7 @@ export default function Development() {
 
   return (
     <section className="dev-wrapper">
-
+{/* <h1 className='section-header'>לומדות</h1> */}
       {projects.map((proj, i) => (
   // <div
   //   key={proj.id}

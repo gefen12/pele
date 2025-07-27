@@ -1,7 +1,7 @@
 /* File: pele/src/components/navBar.css */
-
+/* בסיס */
 .navbar {
-      --main-color: #2461E5;
+  --main-color: #2461E5;
   position: fixed;
   width: 100%;
   padding: 2rem 2rem;
@@ -11,12 +11,8 @@
   font-family: 'Rubik', sans-serif;
   direction: rtl;
   box-sizing: border-box;
-font-size: 1.4rem;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-z-index: 10;
-/* background-color: #F4E7D5; */
+  font-size: 1.4rem;
+  z-index: 100;
 
 }
 
@@ -56,63 +52,94 @@ z-index: 10;
   height: 25px;
   padding: 0.2rem;
 }
+
 .logo {
   position: relative;
   top: -10px;
-  padding: 0 2rem 0 0 ;
-
+  padding: 0 2rem 0 0;
 }
 
 .logo img {
   height: 60px;
   object-fit: contain;
 }
+
+/* המבורגר */
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  gap: 5px;
   cursor: pointer;
+  z-index: 101;
 }
 
+.line {
+  width: 28px;
+  height: 3px;
+  background-color: var(--main-color);
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* מצב פתוח - אפשר להוסיף אפקטים בהמשך */
+.nav-links.open {
+  display: flex;
+}
+
+/* מדיה קוויריז למובייל */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
+    position: relative;
+    font-size: 1.1rem;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    display: none;
-  }
-  .logo {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 4.5rem; /* below the hamburger */
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1rem;
+    z-index: 10;
   }
-  .hamburger {
-    display: flex;
-  }
-  .line {
-      width: 30px;
-    height: 3px;
-    background-color: var(--main-color);
-    margin: 4px 0;
-    transition: 0.4s;
-  }
-  .hamburger .line {
-    width: 30px;
-    height: 3px;
-    background-color: var(--main-color);
-    margin: 4px 0;
-    transition: 0.4s;
-  }
+
   .nav-links.open {
     display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.2rem 0.5rem;
+    text-align: right;
+    white-space: nowrap;
 
   }
-  
+
+  .logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
 }
+
+/* מסך טבלט ומטה – הסתרת contact */
 @media (max-width: 1047px) {
   .contact {
     display: none;

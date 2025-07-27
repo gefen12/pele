@@ -110,77 +110,47 @@ const GalleryPage = () => {
       },
       {
         id: "15",
-        img: "./src/assets/gallery/DSC07019.jpg",
+        img: "./src/assets/gallery/DSC06053.jpg",
         url: "https://example.com/fifteen",
         height: 350,
       },
       {
         id: "16",
-        img: "./src/assets/gallery/DSC07838_edited.jpg",
+        img: "./src/assets/gallery/DSC06156.jpg",
         url: "https://example.com/sixteen",
         height: 400,
       },
       {
         id: "17",
-        img: "./src/assets/gallery/IMG-20250610-WA0000.jpg",
+        img: "./src/assets/gallery/DSC06196.jpg",
         url: "https://example.com/seventeen",
-        height: 300,
+        height: 400,
       },
       {
         id: "18",
-        img: "./src/assets/gallery/DSC07886.jpg",
+        img: "./src/assets/gallery/DSC_2740.jpg",
         url: "https://example.com/eighteen",
         height: 350,
       },
       {
         id: "19",
-        img: "./src/assets/gallery/IMG-20250714-WA0021.jpg",
+        img: "./src/assets/gallery/DSC_2743.jpg",
         url: "https://example.com/nineteen",
         height: 400,
       },
       {
         id: "20",
-        img: "./src/assets/gallery/IMG-20250714-WA0014.jpg",
+        img: "./src/assets/gallery/DSC_3179.jpg",
         url: "https://example.com/twenty",
         height: 300,
       },
         {
         id: "21",
-        img: "./src/assets/gallery/DSC07019.jpg",
+        img: "./src/assets/gallery/DSC_2790.jpg",
         url: "https://example.com/fifteen",
         height: 350,
       },
-      {
-        id: "22",
-        img: "./src/assets/gallery/DSC07838_edited.jpg",
-        url: "https://example.com/sixteen",
-        height: 400,
-      },
-      {
-        id: "23",
-        img: "./src/assets/gallery/IMG-20250610-WA0000.jpg",
-        url: "https://example.com/seventeen",
-        height: 300,
-      },
-      {
-        id: "24",
-        img: "./src/assets/gallery/DSC07886.jpg",
-        url: "https://example.com/eighteen",
-        height: 350,
-      },
-      {
-        id: "25",
-        img: "./src/assets/gallery/IMG-20250714-WA0014.jpg",
-        url: "https://example.com/nineteen",
-        height: 400,
-      },
-      {
-        id: "26",
-        img: "./src/assets/gallery/IMG-20250714-WA0021.jpg",
-        url: "https://example.com/twenty",
-        height: 300,
-      }
- 
+  
 
 
       // ... more items

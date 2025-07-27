@@ -1,0 +1,64 @@
+/* MultimediaPage.css */
+.multimedia-wrapper {
+
+  padding: 3rem 2rem;
+  direction: rtl;
+  font-family: 'Rubik', sans-serif;
+
+}
+
+.multimedia-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #6C63FF;
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90vw;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fefefe;
+}
+
+/* סרטון רוחבי */
+.video-card.landscape iframe {
+  width: 400px;
+  height: 225px;
+}
+
+/* סרטון אנכי */
+.video-card.portrait iframe {
+  width: 225px;
+  height: 400px;
+}
+
+.video-title {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .video-card.landscape iframe {
+    width: 90vw;
+    height: calc(90vw * 9 / 16); /* שימור יחס רוחבי */
+  }
+
+  .video-card.portrait iframe {
+    width: 60vw;
+    height: calc(60vw * 16 / 9); /* שימור יחס אנכי */
+  }
+}
