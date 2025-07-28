@@ -172,8 +172,8 @@ const GalleryPage = () => {
   colorShiftOnHover={false}
 />
       </main>
-
       <About />
+
     </div>
   );
 };

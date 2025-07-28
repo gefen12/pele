@@ -1,6 +1,7 @@
 .gallery-container {
   position: relative;
-  height: 800px; /* גובה מוגדל */
+  /* height: 800px;  */
+  height: auto;
   width: 100%; /* רוחב מלא */
   max-width: 1800px; /* גבול רוחב מקסימלי */
   overflow: hidden;
