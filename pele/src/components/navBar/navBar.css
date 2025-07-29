@@ -13,6 +13,7 @@
   box-sizing: border-box;
   font-size: 1.4rem;
   z-index: 100;
+  margin-bottom: 1rem;
 
 }
 
@@ -94,7 +95,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    position: relative;
+    position: fixed;
     font-size: 1.1rem;
   }
 

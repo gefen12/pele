@@ -20,73 +20,131 @@
   transition: transform 1s ease, opacity 1s ease;
   opacity: 0;
 }
-.cardsHeader{
-      font-style: normal;
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 2rem;
+
+.cardsHeader {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-/* מצב פתוח – ברגע שנגלול */
-.card-container.open .left {
-  transform: translateX(-465px) translateY(45px) rotate(-15deg); /* היה -150px */
+/* מצב פתוח- 4 קלפים */
+.card-container.open .far-left {
+  transform: translateX(-630px) translateY(60px) rotate(-20deg);
   opacity: 1;
 }
 
-.card-container.open .center {
-  transform: translateY(0);
+.card-container.open .left {
+  transform: translateX(-210px) translateY(-15px) rotate(-5deg);
   opacity: 1;
 }
 
 .card-container.open .right {
-  transform: translateX(465px) translateY(45px) rotate(15deg); /* היה 150px */
+  transform: translateX(210px) translateY(-15px) rotate(5deg);
   opacity: 1;
 }
+
+.card-container.open .far-right {
+  transform: translateX(630px) translateY(60px) rotate(20deg);
+  opacity: 1;
+}
+
 /* מצב התחלה – כל הקלפים בערימה אחת */
+.card-position.far-left,
 .card-position.left,
-.card-position.center,
-.card-position.right {
+.card-position.right,
+.card-position.far-right {
   transform: translateY(-20px);
   opacity: 0;
 }
 
-/* נוודא שה־center מעל השאר */
-.card-position.center {
-  z-index: 2;
+/* שכבות */
+.card-position.far-left { z-index: 0; }
+.card-position.left     { z-index: 1; }
+.card-position.right    { z-index: 1; }
+.card-position.far-right { z-index: 0; }
+
+/* רספונסיביות */
+@media (max-width:1500px) {
+  .card-container.open .far-left {
+  transform: translateX(-550px) translateY(60px) rotate(-20deg);
 }
-.card-position.left {
-  z-index: 1;
+.card-container.open .left {
+  transform: translateX(-180px) translateY(-15px) rotate(-5deg);
 }
-.card-position.right {
-  z-index: 0;
+.card-container.open .right {
+  transform: translateX(180px) translateY(-15px) rotate(5deg);
 }
-
-@media (max-width: 600px) {
-  .card-container.open .left {
-    transform: translateX(-120px) rotate(-8deg);
-  }
-
-  .card-container.open .right {
-    transform: translateX(120px) rotate(8deg);
-  }
-
-
+.card-container.open .far-right {
+  transform: translateX(550px) translateY(60px) rotate(20deg);
 }
-@media (max-width: 900px) {
-  .card-container.open .left {
-    transform: translateX(-230px) translateY(12px) rotate(-8deg);
-  }
-
-  .card-container.open .right {
-    transform: translateX(230px) translateY(12px) rotate(8deg);
-  }
+}
+@media (max-width:1280px) {
+  .card-container.open .far-left {
+  transform: translateX(-490px) translateY(60px) rotate(-20deg);
+}
+.card-container.open .left {
+  transform: translateX(-160px) translateY(-15px) rotate(-5deg);
+}
+.card-container.open .right {
+  transform: translateX(160px) translateY(-15px) rotate(5deg);
+}
+.card-container.open .far-right {
+  transform: translateX(490px) translateY(60px) rotate(20deg);
+}
 }
 @media (max-width: 1150px) {
- .card-container.open .left {
-    transform: translateX(-330px) translateY(16px) rotate(-8deg);
+  .card-container.open .far-left {
+  transform: translateX(-420px) translateY(60px) rotate(-22deg);
+}
+.card-container.open .left {
+  transform: translateX(-140px) translateY(-15px) rotate(-5deg);
+}
+.card-container.open .right {
+  transform: translateX(140px) translateY(-15px) rotate(5deg);
+}
+.card-container.open .far-right {
+  transform: translateX(420px) translateY(60px) rotate(22deg);
+}
+}
+@media (max-width: 848px) {
+   .card-container.open .far-left {
+  transform: translateX(-320px) translateY(60px) rotate(-22deg);
+}
+.card-container.open .left {
+  transform: translateX(-110px) translateY(-5px) rotate(-8deg);
+}
+.card-container.open .right {
+  transform: translateX(110px) translateY(-5px) rotate(8deg);
+}
+.card-container.open .far-right {
+  transform: translateX(320px) translateY(60px) rotate(22deg);
+}
+}
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    height: auto;
+    position: static;
   }
 
-  .card-container.open .right {
-    transform: translateX(330px) translateY(16px) rotate(8deg);
+  .card-position {
+    position: relative;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .card-container.open .far-left,
+  .card-container.open .left,
+  .card-container.open .right,
+  .card-container.open .far-right {
+    transform: none;
+    opacity: 1;
+  }
+
+  .cards-wrapper {
+    height: auto;
+    padding-bottom: 2rem;
   }
 }

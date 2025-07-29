@@ -8,10 +8,10 @@ const MediaPage = () => {
 
   return (
     <div>
-      <NavBar color="#6C63FF" />
+      <NavBar color="#8082F8" />
      <MultiMedia />
 
-      <About color="#6C63FF" />
+      <About color="#8082F8" />
     </div>
   );
 };

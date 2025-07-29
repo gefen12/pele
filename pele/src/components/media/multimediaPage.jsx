@@ -89,7 +89,7 @@ export default function MultimediaPage() {
 
   return (
     <div className="multimedia-wrapper">
-      <h1 className="multimedia-title">מולטימדיה</h1>
+      {/* <h1 className="multimedia-title">מולטימדיה</h1> */}
       <div className="video-grid">
         {videos.map((video, index) => (
           <div
