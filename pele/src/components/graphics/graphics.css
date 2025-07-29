@@ -1,0 +1,29 @@
+/* graphics.css */
+.graphics-grid {
+  columns: 4 250px;
+  column-gap: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  top:6rem;
+}
+
+.graphic-card {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.graphic-card:hover {
+  transform: scale(1.03);
+}
+
+.graphic-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}

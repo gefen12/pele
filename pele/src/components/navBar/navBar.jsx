@@ -6,23 +6,32 @@ import { NavLink } from "react-router-dom";
 import logoBlue from '../../assets/pele-blue.svg';
 import logoPink from '../../assets/pele-pink.svg';
 import logoPurple from '../../assets/pele-purple.svg';
+import logoBlack from '../../assets/pele-black.svg';
+
 import sparklePink from '../../assets/sparklePink.svg';
 import sparkleBlue from '../../assets/sparkles.svg';
 import sparklePurple from '../../assets/sparklePurple.svg';
+import sparkleBlack from '../../assets/sparkleBlack.svg'; 
 import "./Navbar.css";
 
 const Navbar = ({ color = "#2461E5" }) => {
   const linkStyle = { color };
+
+
 const logo = color === "#E5249E"
   ? logoPink
-  : color === "#6C63FF"
+  : color === "#8082F8"
   ? logoPurple
+  : color === "#000000"
+  ? logoBlack
   : logoBlue;
 
 const sparkles = color === "#E5249E"
   ? sparklePink
-  : color === "#6C63FF"
+  : color === "#8082F8F"
   ? sparklePurple
+  : color === "#000000"
+  ? sparkleBlack
   : sparkleBlue;
   const [menuOpen, setMenuOpen] = useState(false); 
 
@@ -35,10 +44,11 @@ const sparkles = color === "#E5249E"
       </div>
       {/* Right side - nav links */}
       <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <a href="#about" >אודות</a>
+        {/* <a href="#about" >אודות</a> */}
         <NavLink to="/gallery" className={({ isActive }) => isActive ? "active" : ""}>גלריה</NavLink>
         <NavLink to="/multimedia" className={({ isActive }) => isActive ? "active" : ""}>מולטימדיה</NavLink>
         <NavLink to="/development" className={({ isActive }) => isActive ? "active" : ""}>לומדות</NavLink>
+           <NavLink to="/graphics" className={({ isActive }) => isActive ? "active" : ""}>גרפיקות</NavLink>
           </nav>
 
       {/* Left side - contact */}

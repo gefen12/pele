@@ -4,6 +4,7 @@ import HomePage from './pages/homePage.jsx';
 import GalleryPage from './pages/galleryPage.jsx';
 import DevPage from './pages/devPage.jsx'; 
 import MediaPage from './pages/mediaPage.jsx';
+import GraphicPage from './pages/graphicPage.jsx';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/multimedia' element={<MediaPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/development" element={<DevPage />} />
+        <Route path="/graphics" element={<GraphicPage />} />
       </Routes>
     </Router>
   );

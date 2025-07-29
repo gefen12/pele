@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../components/navBar/navBar.jsx';
-import MultiMedia from '../components/media/multimediaPage.jsx';
+import MultiMedia from '../components/media/multimedia.jsx';
 
 import About from '../components/about/about.jsx';
 
