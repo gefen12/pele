@@ -9,7 +9,7 @@ import GraphicPage from './pages/graphicPage.jsx';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/pele">
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
