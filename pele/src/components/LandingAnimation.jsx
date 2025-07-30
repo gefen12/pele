@@ -40,6 +40,8 @@ const hoverTexts = {
   digital: "משק הדיגיטל אחראי על ניהול התוכן ברשתות החברתיות "
 };
 
+const isMobile = window.innerWidth < 768;
+
 // After all animations done (e.g., after `setShowIcon(true)`):
 useEffect(() => {
   if (showIcon) {
@@ -76,7 +78,7 @@ useEffect(() => {
       />
 
       {/* Bursting icon - manually placed */}
-      {showIcon && (
+      {showIcon && !isMobile &&(
         <motion.img
           src={iconComputer1}
           alt="Burst icon"
@@ -87,7 +89,7 @@ useEffect(() => {
         />
         
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconWheel}
           alt="Burst icon"
@@ -98,7 +100,7 @@ useEffect(() => {
         />
         
       )}
-{showIcon && (
+{showIcon && !isMobile &&(
   <div className="relative left-1/2 top-1/2">
     {/* Bursting icon */}
     <motion.img
@@ -131,7 +133,7 @@ useEffect(() => {
 )}
 
 
-                  {showIcon && (
+                  {showIcon && !isMobile &&(
         <motion.img
           src={iconConnect}
           alt="Burst icon"
@@ -141,7 +143,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconPencil1}
           alt="Burst icon"
@@ -151,7 +153,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={graphicDesign}
           alt="Burst icon"
@@ -173,7 +175,7 @@ useEffect(() => {
         onMouseLeave={() => setHovered(null)}
         />
       )}
-         {showIcon && (
+         {showIcon && !isMobile &&(
         <motion.img
           src={iconPaint}
           alt="Burst icon"
@@ -183,7 +185,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconComputer2}
           alt="Burst icon"
@@ -193,7 +195,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-            {showIcon && (
+            {showIcon && !isMobile &&(
         <motion.img
           src={iconPlant}
           alt="Burst icon"
@@ -203,7 +205,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconVideo}
           alt="Burst icon"
@@ -213,7 +215,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={videoEditer}
           alt="Burst icon"
@@ -235,7 +237,7 @@ useEffect(() => {
         onMouseLeave={() => setHovered(null)}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconLightS}
           alt="Burst icon"
@@ -245,7 +247,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconPencil2}
           alt="Burst icon"
@@ -255,7 +257,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconPost}
           alt="Burst icon"
@@ -265,7 +267,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-          {showIcon && (
+          {showIcon && !isMobile &&(
         <motion.img
           src={digital}
           alt="Burst icon"
@@ -287,7 +289,7 @@ useEffect(() => {
         onMouseLeave={() => setHovered(null)}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={iconComment}
           alt="Burst icon"
@@ -297,7 +299,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-              {showIcon && (
+              {showIcon && !isMobile &&(
         <motion.img
           src={iconHeart}
           alt="Burst icon"
@@ -307,7 +309,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-        {showIcon && (
+        {showIcon && !isMobile &&(
         <motion.img
           src={photographer}
           alt="Burst icon"
@@ -329,7 +331,7 @@ useEffect(() => {
         onMouseLeave={() => setHovered(null)}
         />
       )}
-             {showIcon && (
+             {showIcon && !isMobile &&(
         <motion.img
           src={iconCamera}
           alt="Burst icon"
@@ -339,7 +341,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-      {showIcon && (
+      {showIcon && !isMobile &&(
         <motion.img
           src={iconImg}
           alt="Burst icon"
@@ -349,7 +351,7 @@ useEffect(() => {
           transition={{ type: "spring", stiffness: 80, damping: 10 }}
         />
       )}
-            {showIcon && (
+            {showIcon && !isMobile &&(
         <motion.img
           src={iconLightB}
           alt="Burst icon"

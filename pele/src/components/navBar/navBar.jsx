@@ -35,6 +35,7 @@ const sparkles = color === "#E5249E"
   : sparkleBlue;
   const [menuOpen, setMenuOpen] = useState(false); 
 
+
   return (
     <div dir="rtl" className="navbar" style={{ '--main-color': color }}>
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)} >

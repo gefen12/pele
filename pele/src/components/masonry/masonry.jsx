@@ -6,6 +6,8 @@ import {
   useState,
 } from "react";
 import { gsap } from "gsap";
+import './Masonry.css';
+
 
 const useMedia = (
   queries,
@@ -84,7 +86,6 @@ const Masonry = ({
 
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
-
   const getInitialPosition = (item) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
     if (!containerRect) return { x: item.x, y: item.y };
@@ -211,15 +212,11 @@ const Masonry = ({
   };
 
   return (
-    <div
+<div
   ref={containerRef}
-  className="relative w-full"
-  style={{
-    height: "100vh", // או גובה מותאם אישית אחר
-    padding: "1rem", // אופציונלי: ריווח פנימי
-    // overflow: "hidden", 
-  }}
+  className="masonry-wrap"
 >
+
      <div className="gallery-header">
           <h2>גלריה</h2>
         </div>

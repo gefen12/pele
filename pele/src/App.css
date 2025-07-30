@@ -35,15 +35,6 @@ html, body, #root {
   
 }
 
- .arrow {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-  width: 40px;
-  height: 40px;
-}
 
 @media (max-width: 768px) {
   .landing-container {
@@ -63,30 +54,9 @@ html, body, #root {
   gap: 1rem;
   padding: 2rem;
 }
-.scroll-arrow {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  z-index: 1000;
-}
 
-/* אנימציית ניעור */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-}
 
-.bounce {
-  animation: bounce 1.5s infinite;
-}
+
 
 .section-header {
   text-align: center;

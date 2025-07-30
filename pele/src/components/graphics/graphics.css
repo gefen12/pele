@@ -1,24 +1,28 @@
-/* graphics.css */
+/* בסיס לרשת הגרפיקה */
 .graphics-grid {
-  columns: 4 250px;
-  column-gap: 1.5rem;
-  padding: 2rem;
+  columns: 4 200px;
+  column-gap: 2rem;
+  padding: 4rem 2rem;
   position: relative;
-  top:6rem;
+  top: 6rem;
+  width: 80%;
+  margin: 0 auto;
 }
 
+/* כרטיס גרפיקה */
 .graphic-card {
   break-inside: avoid;
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
-  border-radius: 12px;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
   background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .graphic-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
 }
 
 .graphic-card img {
@@ -26,4 +30,25 @@
   height: auto;
   display: block;
   border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* רספונסיביות למסכים קטנים יותר */
+@media (max-width: 1200px) {
+  .graphics-grid {
+    columns: 3 180px;
+  }
+}
+
+@media (max-width: 900px) {
+  .graphics-grid {
+    columns: 2 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .graphics-grid {
+    columns: 1 100%;
+    padding: 2rem 1rem;
+  }
 }

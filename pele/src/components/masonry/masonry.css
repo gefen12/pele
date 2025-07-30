@@ -1,0 +1,31 @@
+.masonry-wrap {
+    position: relative;
+    height: 90vh;
+}
+@media (max-width: 1500px) {
+.masonry-wrap {
+    height: 115vh;
+}
+}
+@media (max-width: 1200px) {
+.masonry-wrap {
+    height: 120vh;
+}
+}
+
+@media (max-width: 1000px) {
+.masonry-wrap {
+    height:138vh;
+}
+}
+
+@media (max-width: 600px) {
+.masonry-wrap {
+    height: 220vh;
+}
+}
+@media (max-width: 400px) {
+.masonry-wrap {
+    height: 424vh;
+}
+}

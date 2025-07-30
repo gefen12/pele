@@ -15,7 +15,7 @@ const projects = [
     title: 'לומדת קטלנית',
     description: 'לומדת קטלנית מכינה את הלוחם למבחן הקטלנית ולשימוש הכלי בשטח',
     tech: 'React, CSS',
-    codeLink: 'https://github.com/user/project1',
+    codeLink: 'https://github.com/gefen12/my-app.git',
   },
   {
     id: 2,
@@ -25,15 +25,15 @@ const projects = [
     top: '20vh',
     // top: '20vh',
     // left: '47vw',
-    title: 'לומדת דרקונית',
+    title: 'לומדת תלב',
     description: 'Project 2 Description',
       tech: 'React, CSS',
-      codeLink: 'https://github.com/user/project1',
+      codeLink: 'https://github.com/gefen12/dragon-lomda.git',
     
   },
   {
     id: 3,
-    img: './src/assets/projectImgs/project3.png',
+    img: './src/assets/projectImgs/project6.png',
     // top: '90vh',
     left: '27vw',
     top: '57vh',
@@ -42,21 +42,21 @@ const projects = [
     title: 'לומדת דרקונית',
     description: 'Project 3 Description',
       tech: 'React, CSS',
-  codeLink: 'https://github.com/user/project1',
+  codeLink: 'https://github.com/gefen12/dragon-lomda.git',
     
   },
     {
     id: 4,
-    img: './src/assets/projectImgs/project6.png',
+    img: './src/assets/projectImgs/project3.png',
     // top: '125vh',
     left: '53vw',
     top: '57vh',
     //  top: '20vh',
     // left: '67vw',
-    title: 'לומדת טקטיקה',
+    title: ' אתר בהלצ',
     description: 'Project 4 Description',
       tech: 'React, CSS',
-    codeLink: 'https://github.com/user/project1',
+    codeLink: 'https://github.com/gefen12/bhd14.git',
   
   },
 

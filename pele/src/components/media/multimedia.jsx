@@ -9,8 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 const videos = [
   {
     id: 1,
-     title: "סרטון אנכי",
-    src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_1",
+     title: " מכ מאפשר?",
+    src: "../src/assets/מכ מאפשר לא מאפשר_2.mp4",
     orientation: "portrait",
   },
   {
