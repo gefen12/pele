@@ -9,7 +9,7 @@ import { skillsImage } from '../../utils/skillsImage';
 function Skills() {
   const skillBoxStyle = {
     backgroundColor: '#F4E7D5', // your light background
-    boxShadow: '0px 0px 30px #8082F8',
+    boxShadow: '0px 0px 18px #8082F8',
   };
 
   return (
