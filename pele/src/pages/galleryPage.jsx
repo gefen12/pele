@@ -3,7 +3,7 @@ import NavBar from '../components/navBar/navBar.jsx';
 import Masonry from '../components/masonry/masonry.jsx';
 import About from '../components/about/about.jsx';
 
-const imageModules = import.meta.glob('./../assets/gallery/*.jpg', {
+const imageModules = import.meta.glob('//src/assets/gallery/*.jpg', {
   eager: true,
   import: 'default',
 });
