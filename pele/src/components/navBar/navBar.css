@@ -138,6 +138,9 @@
     top: 1rem;
     left: 1rem;
   }
+    .hide-logo-mobile {
+    display: none;
+  }
 }
 
 /* מסך טבלט ומטה – הסתרת contact */

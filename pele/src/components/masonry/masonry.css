@@ -1,42 +1,61 @@
-.masonry-wrap {
+/* Container with responsive column layout */
+.masonry-container {
     position: relative;
-    height: 90vh;
     top: 2vh;
-    width: 100%;
+  width: 100%;
+  column-gap: 18px;
+  column-count: 1;
 }
-@media (max-width: 1500px) {
-.masonry-wrap {
-    height: 128vh;
-}
-}
-@media (max-width: 1200px) {
-.masonry-wrap {
-    height: 130vh;
-}
+/* Responsive column counts */
+@media (min-width: 500px) {
+  .masonry-container {
+    column-count: 2;
+  }
 }
 
-@media (max-width: 1000px) {
-.masonry-wrap {
-    height:168vh;
-}
-}
-
-@media (max-width: 600px) {
-.masonry-wrap {
-    height: 250vh;
-}
-}
-@media (max-width: 400px) {
-.masonry-wrap {
-    height: 500vh;
-}
+@media (min-width: 900px) {
+  .masonry-container {
+    column-count: 3;
+  }
 }
 
+@media (min-width: 1200px) {
+  .masonry-container {
+    column-count: 4;
+  }
+}
 
-.section-header {
-  text-align: center;
-  font-size: 3rem;
-  color: var(--main-color);
-  
+/* Individual masonry item */
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
 
+.masonry-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image hover wrapper */
+.masonry-img-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masonry-img-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Actual image */
+.masonry-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }

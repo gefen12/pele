@@ -3,6 +3,8 @@ import {
   useState,
 } from "react";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import logoBlue from '../../assets/pele-blue.svg';
 import logoPink from '../../assets/pele-pink.svg';
 import logoPurple from '../../assets/pele-purple.svg';
@@ -34,7 +36,8 @@ const sparkles = color === "#E5249E"
   ? sparkleBlack
   : sparkleBlue;
   const [menuOpen, setMenuOpen] = useState(false); 
-
+const location = useLocation();
+const isHome = location.pathname === "/";
 
   return (
     <div dir="rtl" className="navbar" style={{ '--main-color': color }}>
@@ -60,10 +63,10 @@ const sparkles = color === "#E5249E"
         <a href="mailto:pelebhd14@gmail.com" style={{ ...linkStyle, textDecoration: "underline" }} className="contact">
           pelebhd14@gmail.com
         </a>
-        <div className="logo">
-          <a href="./">
-            <img src={logo} alt="Pele Logo" />
-          </a>
+        <div className={`logo ${isHome ? "hide-logo-mobile" : ""}`}>
+            <a href="./">
+              <img src={logo} alt="Pele Logo" />
+            </a>
         </div>
       </div>
     </div>
