@@ -5,6 +5,32 @@ import './cards.css';
 
 export default function Cards() {
   const [scrolled, setScrolled] = useState(false);
+    const cardData = [
+    {
+      subject: 'גרפיקות',
+      bgColor: '#F3E1FD',
+      textColor: '#A257D6',
+      route: '/graphics',
+    },
+    {
+      subject: 'לומדות',
+      bgColor: '#FFE5F5',
+      textColor: '#F52BA0',
+      route: '/development',
+    },
+    {
+      subject: 'גלריה',
+      bgColor: '#E8ECFF',
+      textColor: '#2461E5',
+      route: '/gallery',
+    },
+    {
+      subject: 'מולטימדיה',
+      bgColor: '#F6E6FC',
+      textColor: '#8082F8',
+      route: '/multimedia',
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
