@@ -61,7 +61,7 @@ const sparkles = color === "#E5249E"
           pelebhd14@gmail.com
         </a>
         <div className="logo">
-          <a href="/">
+          <a href="./">
             <img src={logo} alt="Pele Logo" />
           </a>
         </div>

@@ -6,14 +6,10 @@ import {
   useState,
 } from "react";
 import { gsap } from "gsap";
-import './Masonry.css';
+import "./Masonry.css";
+import About from "../about/about";
 
-
-const useMedia = (
-  queries,
-  values,
-  defaultValue
-) => {
+const useMedia = (queries, values, defaultValue) => {
   const get = () =>
     values[queries.findIndex((q) => matchMedia(q).matches)] ?? defaultValue;
 
@@ -21,12 +17,13 @@ const useMedia = (
 
   useEffect(() => {
     const handler = () => setValue(get);
-    queries.forEach((q) => matchMedia(q).addEventListener("change", handler));
+    queries.forEach((q) =>
+      matchMedia(q).addEventListener("change", handler)
+    );
     return () =>
       queries.forEach((q) =>
         matchMedia(q).removeEventListener("change", handler)
       );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queries]);
 
   return value;
@@ -38,10 +35,12 @@ const useMeasure = () => {
 
   useLayoutEffect(() => {
     if (!ref.current) return;
+
     const ro = new ResizeObserver(([entry]) => {
       const { width, height } = entry.contentRect;
       setSize({ width, height });
     });
+
     ro.observe(ref.current);
     return () => ro.disconnect();
   }, []);
@@ -86,36 +85,7 @@ const Masonry = ({
 
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
-  const getInitialPosition = (item) => {
-    const containerRect = containerRef.current?.getBoundingClientRect();
-    if (!containerRect) return { x: item.x, y: item.y };
-
-    let direction = animateFrom;
-    if (animateFrom === "random") {
-      const dirs = ["top", "bottom", "left", "right"];
-      direction = dirs[
-        Math.floor(Math.random() * dirs.length)
-      ];
-    }
-
-    switch (direction) {
-      case "top":
-        return { x: item.x, y: -200 };
-      case "bottom":
-        return { x: item.x, y: window.innerHeight + 200 };
-      case "left":
-        return { x: -200, y: item.y };
-      case "right":
-        return { x: window.innerWidth + 200, y: item.y };
-      case "center":
-        return {
-          x: containerRect.width / 2 - item.w / 2,
-          y: containerRect.height / 2 - item.h / 2,
-        };
-      default:
-        return { x: item.x, y: item.y + 100 };
-    }
-  };
+  const hasMounted = useRef(false);
 
   useEffect(() => {
     preloadImages(items.map((i) => i.img)).then(() => setImagesReady(true));
@@ -133,23 +103,45 @@ const Masonry = ({
       const x = col * (columnWidth + gap);
       const height = child.height / 2;
       const y = colHeights[col];
-
       colHeights[col] += height + gap;
       return { ...child, x, y, w: columnWidth, h: height };
     });
   }, [columns, items, width]);
 
-  const hasMounted = useRef(false);
+  const getInitialPosition = (item) => {
+    switch (animateFrom) {
+      case "top": return { x: item.x, y: -200 };
+      case "bottom": return { x: item.x, y: window.innerHeight + 200 };
+      case "left": return { x: -200, y: item.y };
+      case "right": return { x: window.innerWidth + 200, y: item.y };
+      case "center":
+        const containerRect = containerRef.current?.getBoundingClientRect();
+        return {
+          x: containerRect?.width / 2 - item.w / 2 || item.x,
+          y: containerRect?.height / 2 - item.h / 2 || item.y,
+        };
+      case "random":
+        const dirs = ["top", "bottom", "left", "right"];
+        return getInitialPosition({ ...item, animateFrom: dirs[Math.floor(Math.random() * dirs.length)] });
+      default:
+        return { x: item.x, y: item.y + 100 };
+    }
+  };
 
   useLayoutEffect(() => {
     if (!imagesReady) return;
 
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
-      const animProps = { x: item.x, y: item.y, width: item.w, height: item.h };
+      const start = getInitialPosition(item);
+      const animProps = {
+        x: item.x,
+        y: item.y,
+        width: item.w,
+        height: item.h,
+      };
 
       if (!hasMounted.current) {
-        const start = getInitialPosition(item);
         gsap.fromTo(
           selector,
           {
@@ -159,13 +151,14 @@ const Masonry = ({
             width: item.w,
             height: item.h,
             ...(blurToFocus && { filter: "blur(10px)" }),
+            position: "absolute",
           },
           {
             opacity: 1,
             ...animProps,
             ...(blurToFocus && { filter: "blur(0px)" }),
             duration: 0.8,
-            ease: "power3.out",
+            ease,
             delay: index * stagger,
           }
         );
@@ -180,15 +173,14 @@ const Masonry = ({
     });
 
     hasMounted.current = true;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
+  }, [grid, imagesReady]);
 
   const handleMouseEnter = (id, element) => {
     if (scaleOnHover) {
       gsap.to(`[data-key="${id}"]`, {
         scale: hoverScale,
         duration: 0.3,
-        ease: "power2.out"
+        ease: "power2.out",
       });
     }
     if (colorShiftOnHover) {
@@ -202,7 +194,7 @@ const Masonry = ({
       gsap.to(`[data-key="${id}"]`, {
         scale: 1,
         duration: 0.3,
-        ease: "power2.out"
+        ease: "power2.out",
       });
     }
     if (colorShiftOnHover) {
@@ -212,21 +204,21 @@ const Masonry = ({
   };
 
   return (
-<div
-  ref={containerRef}
-  className="masonry-wrap"
->
-
-     <div className="gallery-header">
-          <h2>גלריה</h2>
-        </div>
+    <div ref={containerRef} className="masonry-wrap relative">
       {grid.map((item) => (
         <div
           key={item.id}
           data-key={item.id}
           className="absolute box-content"
-          style={{ willChange: "transform, width, height, opacity" }}
-          onClick={() => window.open(item.img, "_blank", "noopener")} //אפשר לשנות את זה לקישור אחר אם משנים ל item.url
+          style={{
+            top: 0,
+            left: 0,
+            width: item.w,
+            height: item.h,
+            position: "absolute",
+            willChange: "transform, width, height, opacity",
+          }}
+          onClick={() => window.open(item.img, "_blank", "noopener")}
           onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
         >
@@ -234,12 +226,20 @@ const Masonry = ({
             className="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
             style={{ backgroundImage: `url(${item.img})` }}
           >
+            <img
+              src={item.img}
+              loading="lazy"
+              alt=""
+              style={{ display: "none" }}
+            />
             {colorShiftOnHover && (
               <div className="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none" />
             )}
           </div>
         </div>
       ))}
+ 
+
     </div>
   );
 };
