@@ -12,28 +12,23 @@ import laptop from "../assets/mocup/laptop.png";
 
 const projects = [
   { id: 1, title: "לומדה דרקונית", image: phone1, note: "css, react", href: "/projects/pump" },
-  { id: 2, title: "לומדה קטלנית", image: phone2, note: "css, react", href: "/projects/pump" },
-  { id: 3, title: "אתר בהל\"צ",   image: laptop, note: "react, ux/ui", href: "/projects/pump" },
+  { id: 2, title: "לומדה קטלנית", image: phone2, note: "css, react", href: "https://github.com/gefen12/my-app.git" },
+  { id: 3, title: "אתר בהל\"צ",   image: laptop, note: "react, ux/ui", href: "https://github.com/gefen12/bhd14.git" },
 ];
 
 export default function DevPage() {
   const isMobile = useIsMobile("(max-width: 768px)");
 
   return (
-    <div className="text-neutral-900">
+ <div className="text-neutral-900">
       <Navbar color="#E5249E" />
       <main>
         {isMobile ? (
-          <>
-            <ProjectsMobile projects={projects} />
-            <About color="#E5249E" /> {/* shows after the slides */}
-          </>
+          <ProjectsMobile projects={projects} />
         ) : (
-          <>
-            <Development />
-            <About color="#E5249E" />
-          </>
+          <Development />
         )}
+        <About color="#E5249E" /> {/* always rendered after */}
       </main>
     </div>
   );

@@ -10,7 +10,7 @@ const videos = [
   {
     id: 1,
      title: " מכ מאפשר?",
-    src: "/pele/src/assets/מכ מאפשר לא מאפשר_2.mp4",
+    src: "/pele/public/מכ מאפשר לא מאפשר_2.mp4",
     orientation: "portrait",
   },
   {

@@ -1,103 +1,95 @@
-/* PAGE handles scrolling + snapping */
-html, body {
-  height: 100%;
-  margin: 0;
-  scroll-snap-type: y mandatory;
-  scroll-snap-stop: always;
-  -webkit-overflow-scrolling: touch;
-}
-:root {
-  --accent: #E5249e;
+/* ---- Global (no page snap on desktop) ---- */
+html, body { margin: 0; }
+
+/* Enable page snap only on mobile */
+@media (max-width: 768px) {
+  html, body {
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
-/* .pm-wrap is no longer a scroller */
+/* ---- Projects Mobile ---- */
+:root { --accent: #E5249e; }
+
 .pm-wrap {
-  height: auto;                 /* was 100dvh */
-  overflow: visible;            /* was overflow-y: auto */
+  height: auto;                 /* page scrolls */
+  overflow: visible;
   background: var(--bg);
-  /* these are no longer needed when it's not a scroll container */
-  overscroll-behavior-y: auto;
-  scrollbar-width: auto;
 }
-.pm-wrap::-webkit-scrollbar { display: initial; }
 
-/* each slide still fills a viewport and snaps */
+/* viewport-sized slides only on mobile */
 .pm-slide {
   scroll-snap-align: start;
-  min-height: 100dvh;
-  padding: 1vh 4vw 4vh;
+  padding: 2vh 4vw;   
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto; /* title, hero, link */
   align-items: start;
   justify-items: center;
   position: relative;
-  row-gap: 8px;
-
+  row-gap: 6px;                 /* tighter global gap */
+min-height: auto; 
   /* animation base */
   opacity: 0.7;
   transform: translateY(2vh);
-  transition: opacity 0.45s ease, transform 0.6s cubic-bezier(.22,.61,.36,1);
+  transition: opacity .45s ease, transform .6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* height rules */
+.pm-slide { min-height: auto; }
+@media (max-width: 768px) {
+  .pm-slide { min-height: 100dvh; }
 }
 
 .pm-title {
-  position: relative;
-  top: 10vh;
+ margin: 2vh 0 1vh;             /* closer to hero */
   letter-spacing: 1px;
   color: var(--ink);
   font-size: clamp(26px, 6.2vw, 42px);
   text-transform: uppercase;
-  margin: 4px 0 6px;
   line-height: 1.1;
+  position:relative;
+  top:17vh;       
 
-  opacity: 0.95;
-  transform: translateY(-1vh);
-  transition: transform 0.55s ease, opacity 0.45s ease;
+  opacity: 1;                    /* keep solid */
+  transform: translateY(-0.5vh); /* tiny nudge */
+  transition: transform .55s ease;
 }
 
 .pm-hero {
   width: min(380px, 76vw);
   display: grid;
-  gap: 2px;
+  gap: 2px;                     /* phone ↔ note gap */
   justify-items: center;
+  transform: translateY(-1.6vh); /* pull block closer to title */
 }
 
 .pm-phone {
   width: 100%;
   aspect-ratio: 9/19.5;
   object-fit: contain;
-  transform: translateY(-3vh) rotate(-5deg);
+  transform: translateY(-2vh) rotate(-4.5deg);
   filter: drop-shadow(0 12px 20px rgba(0,0,0,.16));
-  transition: transform 0.6s cubic-bezier(.22,.61,.36,1),
-              filter 0.6s ease;
+  transition: transform .6s cubic-bezier(.22,.61,.36,1), filter .6s ease;
 }
 
 .pm-note {
-  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-family: "Comic Sans MS","Bradley Hand",cursive;
   color: var(--accent);
   font-size: clamp(13px, 3.6vw, 16px);
   text-align: center;
   position: relative;
-  /* left:16vw;
-  bottom: 35vh; */
-  /* margin-top: 2px; */
-
 }
-/* .pm-note::after {
-  content: "";
-  display: block;
-  width: 64%;
-  height: 2px;
-  background: var(--accent);
-  margin: 2px auto 0;
-} */
 
 .pm-link {
-  /* margin-top: 0px; */
+  margin-top: 0;                /* sit flush under note */
+  line-height: 1;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
   position: relative;
-  bottom: 10vh;
+  bottom:17vh;
 }
 .pm-link::after {
   content: "";
@@ -107,29 +99,21 @@ html, body {
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.5s ease;
+  transition: transform .5s ease;
 }
 
 .pm-hint {
   position: absolute;
-  bottom: 10px;
+  bottom: 17px;
   font-size: 11px;
   opacity: .6;
 }
 
-/* active slide state (IntersectionObserver adds `.is-active`) */
-.pm-slide.is-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.pm-slide.is-active .pm-title {
-  transform: translateY(0);
-  opacity: 1;
-}
+/* active slide state (via IntersectionObserver) */
+.pm-slide.is-active { opacity: 1; transform: translateY(0); }
+.pm-slide.is-active .pm-title { transform: translateY(0); }
 .pm-slide.is-active .pm-phone {
-  transform: translateY(-2vh) rotate(-4deg) scale(1.04);
+  transform: translateY(-1.5vh) rotate(-4deg) scale(1.04);
   filter: drop-shadow(0 14px 24px rgba(0,0,0,.22));
 }
-.pm-slide.is-active .pm-link::after {
-  transform: scaleX(1);
-}
+.pm-slide.is-active .pm-link::after { transform: scaleX(1); }

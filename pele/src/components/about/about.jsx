@@ -16,9 +16,9 @@ export default function About({ color = '#2461E5' }) {
 
       <div className="about__socials">
         <span >SOCIALS</span>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">INSTAGRAM</a>
+        <a href="https://www.instagram.com/handasa.kravit.idf?igsh=MWN6anE5aHd4ZGNjOA==" target="_blank" rel="noreferrer">INSTAGRAM</a>
         <a href="https://tiktok.com" target="_blank" rel="noreferrer" >TIKTOK</a>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer" >FACEBOOK</a>
+        <a href="https://www.facebook.com/share/1GbPRLijjg/?mibextid=wwXIfr" target="_blank" rel="noreferrer" >FACEBOOK</a>
       </div>
     </section>
   );
