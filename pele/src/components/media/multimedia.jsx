@@ -10,7 +10,7 @@ const videos = [
   {
     id: 1,
      title: " מכ מאפשר?",
-    src: "/pele/public/מכ מאפשר לא מאפשר_2.mp4",
+    src: `${import.meta.env.BASE_URL}mach-meafsher-2.mp4`,
     orientation: "portrait",
   },
   {

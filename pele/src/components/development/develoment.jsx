@@ -20,7 +20,7 @@ const images = Object.entries(imageModules)
 const projects = [
   {
     id: 1,
-    img: images[0],
+    img: images[3],
     top: '20vh',
     left: '27vw',
     title: 'לומדת קטלנית',
@@ -40,24 +40,24 @@ const projects = [
   },
   {
     id: 3,
-    img: images[3],
-    top: '57vh',
-    left: '27vw',
-    title: 'לומדת דרקונית',
-    description: 'Project 3 Description',
-    tech: 'React, CSS',
-    codeLink: 'https://github.com/gefen12/dragon-lomda.git',
-  },
-  {
-    id: 4,
     img: images[2],
     top: '57vh',
-    left: '53vw',
+    left: '27vw',
     title: 'אתר בהלצ',
-    description: 'Project 4 Description',
+    description: 'Project 3 Description',
     tech: 'React, CSS',
     codeLink: 'https://github.com/gefen12/bhd14.git',
   },
+  // {
+  //   id: 4,
+  //   img: images[2],
+  //   top: '57vh',
+  //   left: '53vw',
+  //   title: 'אתר בהלצ',
+  //   description: 'Project 4 Description',
+  //   tech: 'React, CSS',
+  //   codeLink: 'https://github.com/gefen12/bhd14.git',
+  // },
 ];
 
 export default function Development() {
@@ -90,10 +90,10 @@ export default function Development() {
           key={proj.id}
           ref={(el) => (refs.current[i] = el)}
           className="dev-card"
-          style={{
-            top: proj.top,
-            left: proj.left,
-          }}
+          // style={{
+          //   top: proj.top,
+          //   left: proj.left,
+          // }}
         >
           <img src={proj.img} alt={proj.title} className="dev-img" />
 
