@@ -108,6 +108,17 @@ min-height: auto;
   font-size: 11px;
   opacity: .6;
 }
+.lazy-img {
+  filter: blur(12px);
+  transform: scale(1.02);
+  transition: filter .35s ease, transform .35s ease, opacity .2s ease;
+  opacity: 0.8;
+}
+.lazy-img.is-loaded {
+  filter: blur(0);
+  transform: none;
+  opacity: 1;
+}
 
 /* active slide state (via IntersectionObserver) */
 .pm-slide.is-active { opacity: 1; transform: translateY(0); }

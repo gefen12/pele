@@ -1,3 +1,4 @@
+
 .card {
    width: 18vw;
    height: 40vh;
@@ -9,6 +10,7 @@
   justify-content: space-between;
   transition: transform 0.3s ease;
   margin: 1rem;
+  
 }
 
 .card:hover {
@@ -27,6 +29,7 @@
   text-align: center;
   direction: rtl;
 }
+
 
 /* Small screens */
 @media (max-width: 1500px) {

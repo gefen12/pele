@@ -26,6 +26,8 @@
   text-align: center;
   margin-bottom: 2rem;
 }
+.card__image-area{display:flex;align-items:center;justify-content:center;height:130px;border-radius:18px;background:#fff7ef}
+.card__icon-img{width:64px;height:64px;display:block}
 
 /* מצב פתוח- 4 קלפים */
 .card-container.open .far-left {
