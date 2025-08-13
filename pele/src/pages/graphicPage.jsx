@@ -14,7 +14,7 @@ export default function GraphicPage() {
     <div className=" text-neutral-900">
       <Navbar color='#000000'/>
       <main>
-        <Graphics />
+        <Graphics/>
         <About color='#000000' />
       </main>
     </div>

@@ -50,5 +50,6 @@
   .graphics-grid {
     columns: 1 100%;
     padding: 2rem 1rem;
+    margin-bottom: 1rem;
   }
 }
