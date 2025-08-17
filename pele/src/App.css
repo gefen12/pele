@@ -13,7 +13,11 @@
   font-family: 'Alegreya';
   src: url('./assets/fonts/Alegreya.ttf') format('truetype');
   font-style: normal;
-  
+}
+@font-face {
+  font-family: 'Assitant';
+  src: url('./assets/fonts/Assistant.ttf') format('truetype');
+  font-style: normal;
 }
 
 /* Chrome, Edge, Safari */
@@ -65,4 +69,5 @@ html, body, #root {
   
 
 }
+
 

@@ -9,7 +9,7 @@ import { skillsImage } from '../../utils/skillsImage';
 function Skills() {
   const skillBoxStyle = {
     backgroundColor: '#F4E7D5', // your light background
-    boxShadow: '0px 0px 18px #8082F8',
+    boxShadow: '0px 0px 12px #8082F8',
   };
 
   return (
@@ -40,7 +40,7 @@ function Skills() {
             {skillsData.map((skill, id) => (
               <div className="skill--box" key={id} style={skillBoxStyle}>
                 <img src={skillsImage(skill)} alt={skill} />
-                <h3 style={{ color: '#2461E5' }}>{skill}</h3>
+                <h3 style={{ color: '#2461E5' ,fontFamily: 'Assitant'}}>{skill}</h3>
               </div>
             ))}
           </Marquee>

@@ -12,6 +12,14 @@
   margin: 1rem;
   
 }
+.card__icon-img {
+  width: 8rem !important;   /* force override */
+  height: 8rem !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+  display: block;
+}
 
 .card:hover {
   transform: scale(1.05) rotate(0deg); /* optional hover effect */
@@ -76,6 +84,10 @@
     height: 28vh;
     padding: 0.8rem;
   }
+  .card__icon-img {
+  width: 6rem !important; 
+  height: 6rem !important;
+}
 }
 @media (max-width: 600px) {
   .card {
@@ -86,6 +98,10 @@
   .card__subject {
     font-size: 1.2rem;
   }
+    .card__icon-img {
+  width: 4rem !important; 
+  height: 4rem !important;
+}
 }
 
 

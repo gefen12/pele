@@ -4,7 +4,8 @@
   --main-color: #2461E5;
   position: fixed;
   width: 100%;
-  padding: 2rem 2rem;
+  /* padding: 2rem 2rem; */
+  padding: 1.4rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +15,11 @@
   font-size: 1.4rem;
   z-index: 100;
   margin-bottom: 1rem;
+background-color: #F4E7D5;
+ /* background-color: #f4e7d58c; */
+   /* backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px); */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 
 }
 
@@ -28,11 +34,30 @@
   position: relative;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  text-decoration: underline;
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 3px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 200ms ease;
 }
 
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-links a:focus-visible,
+.hamburger:focus-visible {
+  box-shadow: var(--ring);
+  border-radius: 8px;
+}
 .left-side {
   display: flex;
   align-items: center;
@@ -44,9 +69,7 @@
   color: var(--main-color);
 }
 
-.left-side a:hover {
-  text-decoration: underline;
-}
+
 
 .sparkle-icon {
   width: 25px;
@@ -88,60 +111,176 @@
   display: flex;
 }
 
-/* מדיה קוויריז למובייל */
+/* ===== MOBILE ONLY ===== */
 @media (max-width: 768px) {
+  :root { --nav-h: 60px; }
+
+  /* NAV BAR */
   .navbar {
-    padding: 1rem;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
     position: fixed;
-    font-size: 1.1rem;
+    inset-inline: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .6rem 1rem;
+    min-height: var(--nav-h);
+    background: #F4E7D5;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    z-index: 1200; /* above backdrop */
   }
+
+  .logo { position: static; padding: 0; display: flex; align-items: center; }
+  .logo img { height: 42px; object-fit: contain; }
 
   .hamburger {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 20;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center; gap: 6px;
+    cursor: pointer;
+    background: transparent;       /* remove button chrome */
+    border: 0; outline: none;      /* remove border/bubble */
+    box-shadow: none; border-radius: 8px;
+    z-index: 1201;                 /* above bar, below sheet */
+  }
+  .line { width: 22px; height: 3px; background: var(--main-color); border-radius: 2px; transition: .25s; }
+
+  /* Hide burger when open (so it doesn't float over the sheet) */
+  .navbar[data-open="true"] .hamburger { opacity: 0; pointer-events: none; }
+
+  /* push page below fixed bar */
+  body { padding-top: var(--nav-h); }
+
+  /* BACKDROP (under navbar, over content) */
+  body.nav-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    top: var(--nav-h);             /* don't cover the navbar */
+    background: rgba(0,0,0,.28);
+    backdrop-filter: blur(2px);
+    z-index: 1100;                 /* below navbar, below sheet */
   }
 
+  /* SHEET */
   .nav-links {
-    position: absolute;
-    top: 4.5rem; /* below the hamburger */
-    right: 1rem;
+    position: fixed;
+    top: var(--nav-h);
+    inset-inline: 0;
     display: none;
     flex-direction: column;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 1rem;
-    z-index: 10;
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
+    padding: 6px 0;
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+    z-index: 1300;                 /* on top of everything */
   }
-
-  .nav-links.open {
-    display: flex;
-  }
+  .nav-links.open { display: flex; }
 
   .nav-links a {
-    padding: 0.2rem 0.5rem;
+    display: block;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--main-color);
     text-align: right;
+    text-decoration: none;
     white-space: nowrap;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .nav-links a:last-child { border-bottom: 0; }
+  .nav-links a::after { display: none; } /* remove underline anim on mobile */
 
-  }
-
-  .logo {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-  }
-    .hide-logo-mobile {
-    display: none;
-  }
+  /* keep your existing */
+  .hide-logo-mobile { display: none; }
+  .contact { display: none; } /* optional on mobile */
 }
+
+@media (max-width: 768px) {
+  :root { --nav-h: 64px; }
+
+  /* fixed bar height so content never jumps */
+  .navbar {
+    padding: 0.6rem 1rem;
+    min-height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F4E7D5;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* logo & burger same visual weight */
+  .logo { position: static; padding: 0; display: flex; align-items: center; }
+  .logo img { height: 42px; object-fit: contain; }
+
+  .hamburger {
+    display: flex;
+    position: static;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center; gap: 6px;
+    border-radius: 10px; cursor: pointer;
+    z-index: 1002;
+  }
+  .line { width: 22px; height: 3px; background: var(--main-color); border-radius: 2px; }
+
+  /* make space for fixed navbar so content isn't covered */
+  body { padding-top: var(--nav-h); }
+
+  /* ===== dropdown becomes a full-width sheet ===== */
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h);
+    inset-inline: 0;                 /* full width RTL/LTR */
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+    z-index: 1001;
+  }
+  .nav-links.open { display: flex; }
+
+  /* big, tidy tap targets */
+  .nav-links a {
+    display: block;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--main-color);
+    text-align: right;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .nav-links a:last-child { border-bottom: 0; }
+
+  /* remove the tiny underline animation on mobile */
+  .nav-links a::after { display: none; }
+
+  /* optional: dim page behind menu when open */
+  body.nav-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+  }
+
+  .hide-logo-mobile { display: none; }
+}
+
+/* keep hiding contact on tablet and down */
+@media (max-width: 1047px) { .contact { display: none; } }
 
 /* מסך טבלט ומטה – הסתרת contact */
 @media (max-width: 1047px) {

@@ -95,9 +95,10 @@ export default function ProjectsMobile({ projects = [] }) {
   return (
     <div ref={wrapRef} className="pm-wrap">
       {projects.map((p, i) => (
+         <a className="pm-link" href={p.href} target="_blank" rel="noreferrer">
         <section className="pm-slide" key={p.id ?? i}>
           <h1 className="pm-title">{p.title}</h1>
-          <div className="pm-hero">
+          <div className="pm-hero" >
             {/* priority=true for the first slide so it appears immediately */}
             <LazyImage
               className="pm-phone"
@@ -106,10 +107,10 @@ export default function ProjectsMobile({ projects = [] }) {
               priority={i === 0}
             />
           </div>
-          <a className="pm-link" href={p.href} target="_blank" rel="noreferrer">
-            View Project
-          </a>
+          {/* <a className="pm-link" href={p.href} target="_blank" rel="noreferrer">
+            View Project */}
         </section>
+          </a>
       ))}
     </div>
   );

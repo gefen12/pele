@@ -49,10 +49,10 @@ const isHome = location.pathname === "/";
       {/* Right side - nav links */}
       <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
         {/* <a href="#about" >אודות</a> */}
+           <NavLink to="/graphics" className={({ isActive }) => isActive ? "active" : ""}>גרפיקות</NavLink>
+        <NavLink to="/development" className={({ isActive }) => isActive ? "active" : ""}>לומדות</NavLink>
         <NavLink to="/gallery" className={({ isActive }) => isActive ? "active" : ""}>גלריה</NavLink>
         <NavLink to="/multimedia" className={({ isActive }) => isActive ? "active" : ""}>מולטימדיה</NavLink>
-        <NavLink to="/development" className={({ isActive }) => isActive ? "active" : ""}>לומדות</NavLink>
-           <NavLink to="/graphics" className={({ isActive }) => isActive ? "active" : ""}>גרפיקות</NavLink>
           </nav>
 
       {/* Left side - contact */}

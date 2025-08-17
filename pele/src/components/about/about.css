@@ -7,7 +7,7 @@
   position: relative;
 }
 .about__socials a {
-  font-family: 'Alegreya', serif;
+  font-family: 'Assitant', serif;
 }
 
 
@@ -24,21 +24,23 @@
 .about__headline {
   font-size: 7rem;
    color: var(--main-color);
-  /* color: #f52ba0; */
   margin-bottom: 1rem;
+
 }
 
 .about__subtext {
   font-size: 2.5rem;
-  color: #000;
+  /* color: #666666; */
   margin-bottom: 1rem;
+
 }
 
 .about__mail {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Alegreya', serif;
+  /* font-family: 'Alegreya', serif; */
+  font-family: 'Assitant', sans-serif;
     font-size: 1.4rem;
 }
 
@@ -46,12 +48,15 @@
   text-decoration: underline;
   /* text-decoration-color: #f52ba0;  */
   text-decoration-color: var(--main-color);
-  color: #000;
+  /* color: #666666; */
 }
 
 .about__arrow {
+position: relative;
+top: 2px;
   width: 29px;
   height: auto;
+    /* color: #666666; */
 }
 
 .about__socials {
@@ -69,14 +74,14 @@
 
 .about__socials span {
   margin-left: 1rem;
-  color: #000;
+    /* color: #666666; */
 }
 
 .about__socials a {
   text-decoration: none;
   /* border-bottom: 2px solid #f52ba0; */
     border-bottom: 2px solid var(--main-color);
-  color: #000;
+  /* color: #666666; */
   font-size: 1rem;
 }
 
