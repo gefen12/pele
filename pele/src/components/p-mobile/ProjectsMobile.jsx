@@ -107,8 +107,9 @@ export default function ProjectsMobile({ projects = [] }) {
               priority={i === 0}
             />
           </div>
-          {/* <a className="pm-link" href={p.href} target="_blank" rel="noreferrer">
-            View Project */}
+          <a className="pm-link" href={p.href} target="_blank" rel="noreferrer">
+            View Project
+          </a>
         </section>
           </a>
       ))}
