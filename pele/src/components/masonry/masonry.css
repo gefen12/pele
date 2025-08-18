@@ -6,6 +6,13 @@
   column-gap: 18px;
   column-count: 1;
 }
+
+@media (min-width: 769px) {
+    .masonry-container {
+        top: 2rem;
+    }
+  
+}
 /* Responsive column counts */
 @media (min-width: 500px) {
   .masonry-container {

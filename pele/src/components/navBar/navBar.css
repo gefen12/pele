@@ -111,11 +111,12 @@ background-color: #F4E7D5;
   display: flex;
 }
 
-/* ===== MOBILE ONLY (single block) ===== */
-@media (max-width: 768px) {
-  :root { --nav-h: 64px; } /* choose 60/64 and use it consistently */
 
-  /* the fixed bar */
+/* ===== MOBILE ONLY (single, consolidated) ===== */
+@media (max-width: 768px) {
+  :root { --nav-h: 64px; } /* pick 60–68px if you like */
+
+  /* Fixed top bar */
   .navbar {
     position: fixed;
     inset-inline: 0;
@@ -128,68 +129,100 @@ background-color: #F4E7D5;
     background: #F4E7D5;
     border-bottom: 1px solid rgba(0,0,0,.06);
     z-index: 1200;
+    margin-bottom: 0; /* fixed bars should not add flow space */
+   
   }
 
-  /* make room ONCE for the fixed bar */
-  body { padding-top: var(--nav-h); }
+  /* Make room for the fixed bar exactly once */
+  /* body { padding-top: var(--nav-h); } */
 
-  /* logo & burger */
-  .logo { position: static; padding: 0; display: flex; align-items: center; }
-  .logo img { height: 42px; object-fit: contain; }
+  /* Logo & hamburger — balanced sizing */
+  .logo {
+    position: static;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    height: 42px;           /* tweak 38–48px as needed */
+    object-fit: contain;
+  }
+
   .hamburger {
     display: flex;
     width: 44px; height: 44px;
-    align-items: center; justify-content: center; gap: 6px;
-    background: transparent; border: 0; outline: none; box-shadow: none;
+    align-items: center; justify-content: center;
+    gap: 6px;
+    background: transparent;
+    border: 0; outline: none; box-shadow: none;
+    cursor: pointer;
+    z-index: 1201;          /* above bar, below menu */
   }
-  .line { width: 22px; height: 3px; background: var(--main-color); border-radius: 2px; }
+  .line {
+    width: 22px; height: 3px;
+    background: var(--main-color);
+    border-radius: 2px;
+    transition: .25s;
+  }
 
-  /* sheet under the bar (does NOT push layout) */
+  /* Compact dropdown panel (anchored to the right, RTL-friendly) */
   .nav-links {
     position: fixed;
-    top: var(--nav-h);
-    inset-inline: 0;
+    top: calc(var(--nav-h) + 8px);
+    inset-inline-end: 12px;    /* right side in RTL/LTR logical prop */
+    inset-inline-start: auto;
     display: none;
     flex-direction: column;
+    gap: 0;
+    padding: 10px;
     background: #fff;
-    border-top: 1px solid #eee;
-    border-radius: 0 0 16px 16px;
-    box-shadow: 0 12px 24px rgba(0,0,0,.12);
-    padding: 6px 0;
-    max-height: calc(100dvh - var(--nav-h));
+    border: 1px solid #e9e9e9;
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0,0,0,.14);
+    max-height: calc(100dvh - var(--nav-h) - 16px);
     overflow-y: auto;
     z-index: 1300;
+     direction: ltr;
   }
   .nav-links.open { display: flex; }
 
+  /* small arrow pointing up from the card (optional) */
+  .nav-links::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    inset-inline-end: 18px;     /* line this up under the hamburger */
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    filter: drop-shadow(0 -1px 0 #e9e9e9);
+  }
+
+  /* Menu items */
   .nav-links a {
     display: block;
-    padding: 14px 18px;
+    padding: 12px 10px;
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--main-color);
-    text-align: right;
     text-decoration: none;
+    text-align: right;
     white-space: nowrap;
-    border-bottom: 1px solid #f3f3f3;
+    border-radius: 10px;
   }
-  .nav-links a:last-child { border-bottom: 0; }
-  .nav-links a::after { display: none; }
+  .nav-links a + a { margin-top: 4px; }
+  .nav-links a:hover,
+  .nav-links a.active { background: #f7f7f7; }
+  .nav-links a::after { display: none; } /* remove underline anim in panel */
 
-  /* optional: dim content (not the navbar) when open */
-  body.nav-open::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    top: var(--nav-h);
-    background: rgba(0,0,0,.25);
-    backdrop-filter: blur(2px);
-    z-index: 1100;
-  }
+  /* Optional: if you previously used a dark backdrop, disable it for compact menu */
+  body.nav-open::before { display: none; }
 
+  /* Hide extras on mobile if desired */
   .hide-logo-mobile { display: none; }
   .contact { display: none; }
 }
+
 /* keep hiding contact on tablet and down */
 @media (max-width: 1047px) { .contact { display: none; } }
 
