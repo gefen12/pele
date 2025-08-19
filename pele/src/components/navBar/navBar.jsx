@@ -9,11 +9,13 @@ import logoBlue from '../../assets/pele-blue.svg';
 import logoPink from '../../assets/pele-pink.svg';
 import logoPurple from '../../assets/pele-purple.svg';
 import logoBlack from '../../assets/pele-black.svg';
+import logoGrey from '../../assets/pele-grey.svg';
 
 import sparklePink from '../../assets/sparklePink.svg';
 import sparkleBlue from '../../assets/sparkles.svg';
 import sparklePurple from '../../assets/sparklePurple.svg';
 import sparkleBlack from '../../assets/sparkleBlack.svg'; 
+import sparkleGrey from '../../assets/sparkleGrey.svg';
 import "./Navbar.css";
 
 const Navbar = ({ color = "#2461E5" }) => {
@@ -24,16 +26,16 @@ const logo = color === "#E5249E"
   ? logoPink
   : color === "#8082F8"
   ? logoPurple
-  : color === "#000000"
-  ? logoBlack
+  : color === "#555"
+  ? logoGrey
   : logoBlue;
 
 const sparkles = color === "#E5249E"
   ? sparklePink
   : color === "#8082F8F"
   ? sparklePurple
-  : color === "#000000"
-  ? sparkleBlack
+  : color === "#555"
+  ? sparkleGrey
   : sparkleBlue;
   const [menuOpen, setMenuOpen] = useState(false); 
 const location = useLocation();

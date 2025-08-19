@@ -12,10 +12,10 @@ export default function GraphicPage() {
 
   return (
     <div className=" text-neutral-900">
-      <Navbar color='#000000'/>
+      <Navbar color='#555'/>
       <main>
         <Graphics/>
-        <About color='#000000' />
+        <About color='#555' />
       </main>
     </div>
   );

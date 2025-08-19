@@ -5,6 +5,7 @@
   direction: rtl;
   font-family: 'Rubik', sans-serif;
   position: relative;
+    color: #555;
 }
 .about__socials a {
   font-family: 'Assitant', serif;
@@ -83,6 +84,7 @@ top: 2px;
     border-bottom: 2px solid var(--main-color);
   /* color: #666666; */
   font-size: 1rem;
+    font-family: 'Assitant', sans-serif;
 }
 
 /* Responsive */
@@ -124,4 +126,46 @@ top: 2px;
     border-bottom: 1px solid var(--main-color);
   }
 
+}
+.footer-love {
+  text-align: center;
+  font-size: 0.85rem;
+  /* margin-top: 10px; */
+  /* margin-bottom: 8px; */
+  color: #555;
+  font-family: 'Assitant', sans-serif;
+}
+
+.footer-love .heart {
+  color: #E5249E; /* or black, blue, etc. */
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+}
+.tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  background-color: #ffe6f2;   /* soft pink */
+  color: #333;
+  text-align: center;
+  border-radius: 8px;          /* softer rounded corners */
+  padding: 6px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* cute soft shadow */
+  direction: ltr;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

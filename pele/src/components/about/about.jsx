@@ -3,6 +3,7 @@ import './about.css';
 import Arrow from '../../assets/arrow2.svg'; 
 
 export default function About({ color = '#2461E5' }) {
+  const PHONE_TEL = '054-1234567'; // Replace with actual phone number
   return (
     <section className="about" id="about" style={{  '--main-color': color  }}>
       <div className="about__content">
@@ -20,6 +21,12 @@ export default function About({ color = '#2461E5' }) {
         <a href="https://tiktok.com" target="_blank" rel="noreferrer" >TIKTOK</a>
         <a href="https://www.facebook.com/share/1GbPRLijjg/?mibextid=wwXIfr" target="_blank" rel="noreferrer" >FACEBOOK</a>
       </div>
+      <div class="footer-love">
+  Developed with <span class="heart">❤</span> by  
+  <span class="tooltip"> Gefen
+    <span class="tooltiptext" >+972 54-566-7706</span>
+  </span>
+</div>
 
     </section>
   );

@@ -54,6 +54,7 @@ const HomePage = () => {
       <Cards />
       <Skills />
       <About />
+
     </div>
   );
 };

@@ -26,7 +26,7 @@ export default function Cards() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const positions = ["far-left", "left", "right", "far-right"];
+  const positions = ["far-right", "right", "left", "far-left"];
 
   return (
     <div className="cards-wrapper">

@@ -44,7 +44,7 @@ const projects = [
     top: '57vh',
     left: '27vw',
     title: 'אתר בהלצ',
-    description: 'Project 3 Description',
+    description: 'האתר נועד לשפר וליעל את שימור הידע בבסיס.',
     tech: 'React, CSS',
     codeLink: 'https://github.com/gefen12/bhd14.git',
   },

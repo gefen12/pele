@@ -62,7 +62,8 @@
 
 
 .skill--box h3 {
-    font-family: Big Shoulders Text;
+    /* font-family: Big Shoulders Text; */
+    font-family: 'Asisstant', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
