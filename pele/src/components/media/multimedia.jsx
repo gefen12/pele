@@ -96,11 +96,12 @@ const videos = [
 ];
 export default function MultimediaPage() {
   const videoRefs = useRef([]);
+  const filterBtnRefs = useRef([]);
   const [filter, setFilter] = useState("all");
 
   // Animate videos on scroll
   useEffect(() => {
-    videoRefs.current.forEach((el, index) => {
+    videoRefs.current.forEach((el) => {
       if (el) {
         gsap.fromTo(
           el,
@@ -121,6 +122,35 @@ export default function MultimediaPage() {
     });
   }, [filter]); // re-run animation when filter changes
 
+  // Handle filter change with GSAP animation
+  const handleFilterChange = (newFilter, index) => {
+    setFilter(newFilter);
+
+    filterBtnRefs.current.forEach((btn, i) => {
+      if (btn) {
+        if (i === index) {
+          // Animate active button
+          gsap.to(btn, {
+            scale: 1.1,
+            backgroundColor: "#6a5af9",
+            color: "#fff",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        } else {
+          // Reset inactive buttons
+          gsap.to(btn, {
+            scale: 1,
+            backgroundColor: "#fff",
+            color: "#000",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        }
+      }
+    });
+  };
+
   // Filter videos
   const filteredVideos =
     filter === "all"
@@ -131,24 +161,20 @@ export default function MultimediaPage() {
     <div className="multimedia-wrapper">
       {/* Filter bar */}
       <div className="filter-bar">
-        <button
-          className={filter === "all" ? "active" : ""}
-          onClick={() => setFilter("all")}
-        >
-          הכל
-        </button>
-        <button
-          className={filter === "landscape" ? "active" : ""}
-          onClick={() => setFilter("landscape")}
-        >
-          סרטון רוחבי
-        </button>
-        <button
-          className={filter === "portrait" ? "active" : ""}
-          onClick={() => setFilter("portrait")}
-        >
-          סרטון אנכי
-        </button>
+        {[
+          { key: "all", label: "הכל" },
+          { key: "landscape", label: "סרטון רוחבי" },
+          { key: "portrait", label: "סרטון אנכי" },
+        ].map((item, i) => (
+          <button
+            key={item.key}
+            ref={(el) => (filterBtnRefs.current[i] = el)}
+            className={filter === item.key ? "active" : ""}
+            onClick={() => handleFilterChange(item.key, i)}
+          >
+            {item.label}
+          </button>
+        ))}
       </div>
 
       {/* Video grid */}

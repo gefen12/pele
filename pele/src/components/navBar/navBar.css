@@ -4,7 +4,6 @@
   --main-color: #2461E5;
   position: fixed;
   width: 100%;
-  /* padding: 2rem 2rem; */
   padding: 1.4rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -16,9 +15,6 @@
   z-index: 100;
   margin-bottom: 1rem;
 background-color: #F4E7D5;
- /* background-color: #f4e7d58c; */
-   /* backdrop-filter: saturate(140%) blur(8px);
-  -webkit-backdrop-filter: saturate(140%) blur(8px); */
   border-bottom: 1px solid rgba(0,0,0,0.06);
 
 }
@@ -226,9 +222,41 @@ background-color: #F4E7D5;
 /* keep hiding contact on tablet and down */
 @media (max-width: 1047px) { .contact { display: none; } }
 
-/* מסך טבלט ומטה – הסתרת contact */
-@media (max-width: 1047px) {
-  .contact {
-    display: none;
+/* === defaults (desktop / tall screens) === */
+:root {
+  --nav-h: 76px;       /* total navbar height */
+  --nav-pad-y: 1.4rem; /* vertical padding inside the bar */
+}
+
+/* use the vars in your base rule */
+.navbar {
+  min-height: var(--nav-h);
+  padding: var(--nav-pad-y) 2rem;
+}
+
+/* keep the dropdown aligned with the bar height */
+.nav-links {
+  top: calc(var(--nav-h) + 8px);
+  max-height: calc(100dvh - var(--nav-h) - 16px);
+}
+
+/* === when the screen is short === */
+@media (max-height: 860px) {
+  :root { --nav-h: 60px; --nav-pad-y: 0.6rem; }
+
+  .logo img { height: 43px;}
+  .logo { top: 0.03rem; }
+  .hamburger { width: 40px; height: 40px; }
+  .line { width: 20px; }
+  .nav-links {
+    top: calc(var(--nav-h) + 6px);
+    max-height: calc(100dvh - var(--nav-h) - 12px);
   }
+  .navbar { font-size: 1.2rem; }
+}
+
+/* (optional) even shorter screens */
+@media (max-height: 700px) {
+  :root { --nav-h: 52px; --nav-pad-y: 0.4rem; }
+  .logo img { height: 42px; }
 }
