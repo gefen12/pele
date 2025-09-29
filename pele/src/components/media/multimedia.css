@@ -51,23 +51,11 @@
   color: #333;
 }
 
-/* רספונסיביות */
-@media (max-width: 768px) {
-  .video-card.landscape iframe {
-    width: 90vw;
-    height: calc(90vw * 9 / 16); /* שימור יחס רוחבי */
-  }
-
-  .video-card.portrait iframe {
-    width: 60vw;
-    height: calc(60vw * 16 / 9); /* שימור יחס אנכי */
-  }
-}
 .filter-bar {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   font-family: 'Assitant', sans-serif;
 }
 
@@ -78,7 +66,8 @@
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  transition: all 0.2s ease;
+  transition:  color .2s ease;
+  white-space: nowrap;         
 }
 
 .filter-bar button:hover {
@@ -91,3 +80,32 @@
   border-color: #6a5af9;
 }
 
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .multimedia-wrapper {
+  top:4rem;
+  } 
+
+  .video-card.landscape iframe {
+    width: 90vw;
+    height: calc(90vw * 9 / 16); /* שימור יחס רוחבי */
+  }
+  
+  .video-card.portrait iframe {
+    width: 60vw;
+    height: calc(60vw * 16 / 9); /* שימור יחס אנכי */
+  }
+
+  .filter-bar {
+    flex-wrap: wrap;       /* ✅ buttons will move to another row */
+    justify-content: center;
+    gap: 0.5rem 0.75rem;   /* horizontal and vertical spacing */
+    margin-bottom: 1.3rem;
+  }
+  
+  .filter-bar button {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+}

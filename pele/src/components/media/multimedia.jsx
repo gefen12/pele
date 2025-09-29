@@ -48,36 +48,42 @@ const videos = [
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type: "health",
   },
   {
     id: 2,
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type: "health",
   },
   {
       id: 3,
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type: "gym",
   },
   {
     id: 4,
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type: "gym",
   },
   {
     id: 5,
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type: "explosion",
   },
   {
       id: 6,
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type: "explosion",
   }
   ,
   {
@@ -85,12 +91,14 @@ const videos = [
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type: "explosion",
   },
   {
       id: 8,
     title: "סרטון רוחבי",
     src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
     orientation: "landscape",
+    type:"rekem",
   }
 
 ];
@@ -155,7 +163,7 @@ export default function MultimediaPage() {
   const filteredVideos =
     filter === "all"
       ? videos
-      : videos.filter((video) => video.orientation === filter);
+      : videos.filter((video) => video.type === filter);
 
   return (
     <div className="multimedia-wrapper">
@@ -163,8 +171,12 @@ export default function MultimediaPage() {
       <div className="filter-bar">
         {[
           { key: "all", label: "הכל" },
-          { key: "landscape", label: "סרטון רוחבי" },
-          { key: "portrait", label: "סרטון אנכי" },
+          // { key: "landscape", label: "סרטון רוחבי" },
+          // { key: "portrait", label: "סרטון אנכי" },
+          { key: "health", label: "בריאות" },
+          { key: "gym", label: "אימון גופני" },
+          { key: "explosion", label: "חבלה" },
+          { key: "rekem", label: "רקם" },
         ].map((item, i) => (
           <button
             key={item.key}
