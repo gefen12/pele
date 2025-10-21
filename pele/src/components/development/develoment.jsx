@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Development.css';
@@ -6,7 +6,7 @@ import './Development.css';
 gsap.registerPlugin(ScrollTrigger);
 
 // ✅ Dynamically import images from assets/projectImgs/
-const imageModules = import.meta.glob('../../assets/projectImgs/*.png', {
+const imageModules = import.meta.glob('../../assets/projectImgs/*.{png,svg}', {
   eager: true,
   import: 'default',
 });
@@ -16,52 +16,55 @@ const images = Object.entries(imageModules)
   .sort(([a], [b]) => a.localeCompare(b)) // Optional: sort by file name
   .map(([_, module]) => module);
 
-// ✅ Project data with dynamic images
-const projects = [
-  {
-    id: 1,
-    img: images[3],
-    top: '20vh',
-    left: '27vw',
-    title: 'לומדת קטלנית',
-    description: 'לומדת קטלנית מכינה את הלוחם למבחן הקטלנית ולשימוש הכלי בשטח',
-    tech: 'React, CSS',
-    codeLink: 'https://github.com/gefen12/my-app.git',
-  },
-  {
-    id: 2,
-    img: images[4],
-    top: '20vh',
-    left: '53vw',
-    title: 'לומדת תלב',
-    description: 'Project 2 Description',
-    tech: 'React, CSS',
-    codeLink: 'https://github.com/gefen12/dragon-lomda.git',
-  },
-  {
-    id: 3,
-    img: images[2],
-    top: '57vh',
-    left: '27vw',
-    title: 'אתר בהלצ',
-    description: 'האתר נועד לשפר וליעל את שימור הידע בבסיס.',
-    tech: 'React, CSS',
-    codeLink: 'https://github.com/gefen12/bhd14.git',
-  },
-  // {
-  //   id: 4,
-  //   img: images[2],
-  //   top: '57vh',
-  //   left: '53vw',
-  //   title: 'אתר בהלצ',
-  //   description: 'Project 4 Description',
-  //   tech: 'React, CSS',
-  //   codeLink: 'https://github.com/gefen12/bhd14.git',
-  // },
-];
+  
+  export default function Development() {
+    const refs = useRef([]);
+    const [project2Clicked, setProject2Clicked] = useState(false);
+    const [project1Clicked, setProject1Clicked] = useState(false);
 
-export default function Development() {
-  const refs = useRef([]);
+    // ✅ Project data with dynamic images
+    const projects = [
+      {
+        id: 1,
+        img: project1Clicked ? images.find((src) => src.includes('project4v2')) : images[3],
+        top: '20vh',
+        left: '27vw',
+        title: 'לומדת קטלנית',
+        description: 'לומדת קטלנית מכינה את הלוחם למבחן הקטלנית ולשימוש הכלי בשטח',
+        tech: 'React, CSS',
+        codeLink: 'https://github.com/gefen12/my-app.git',
+      },
+      {
+        id: 2,
+         img: project2Clicked ? images.find((src) => src.includes('project5v2')) : images[5],
+        top: '20vh',
+        left: '53vw',
+        title: 'לומדת תלב',
+        description: 'Project 2 Description',
+        tech: 'React, CSS',
+        codeLink: 'https://github.com/gefen12/dragon-lomda.git',
+      },
+      {
+        id: 3,
+        img: images[2],
+        top: '57vh',
+        left: '27vw',
+        title: 'אתר בהלצ',
+        description: 'האתר נועד לשפר וליעל את שימור הידע בבסיס.',
+        tech: 'React, CSS',
+        codeLink: 'https://github.com/gefen12/bhd14.git',
+      },
+      // {
+      //   id: 4,
+      //   img: images[2],
+      //   top: '57vh',
+      //   left: '53vw',
+      //   title: 'אתר בהלצ',
+      //   description: 'Project 4 Description',
+      //   tech: 'React, CSS',
+      //   codeLink: 'https://github.com/gefen12/bhd14.git',
+      // },
+    ];
 
   useEffect(() => {
     refs.current.forEach((el, i) => {
@@ -82,6 +85,11 @@ export default function Development() {
       );
     });
   }, []);
+    // ✅ Click handler
+  const handleClick = (id) => {
+    if (id === 2) setProject2Clicked((prev) => !prev);
+    if (id === 1) setProject1Clicked((prev) => !prev);
+  };
 
   return (
     <section className="dev-wrapper">
@@ -90,6 +98,7 @@ export default function Development() {
           key={proj.id}
           ref={(el) => (refs.current[i] = el)}
           className="dev-card"
+          onClick={() => handleClick(proj.id)}
           // style={{
           //   top: proj.top,
           //   left: proj.left,
