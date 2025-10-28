@@ -32,12 +32,14 @@ import iconLightB from "../assets/icons/light-icon-b.svg";
 export default function LandingAnimation({ onAnimationsDone }) {
   const [showIcon, setShowIcon] = useState(false);
   const [hovered, setHovered] = useState(false);
+    const [allowLogoHover, setAllowLogoHover] = useState(false);
 const hoverTexts = {
   dev: "מפתחת לומדה עוסקת בפיתוח מערכות למידה ואתרים אינטראקטיביים, במטרה לייעל תהליכי הכשרה ולהנגיש ידע באופן חווייתי, אפקטיבי ומותאם למשתמש.",
   video: "עורכת וידאו אחראית על הפקת סרטונים ללמידה והמחשה, בשילוב גרפיקה, קריינות והנפשה.",
   designer: "מעצבת גרפית מפתחת שפה ויזואלית למוצרי למידה, שומרת על קונספט אחיד, ברור ונעים לעין.",
   photographer: "צלמת אחראית על תיעוד צילומים ללמידה, עיצוב סביבות צילום ויצירת תמונות איכותיות ואסתטיות.",
-  digital: "משק הדיגיטל אחראי על ניהול התוכן ברשתות החברתיות "
+  digital: "משק הדיגיטל אחראי על ניהול התוכן ברשתות החברתיות ",
+  commander: "רמ\"ד פלא אחראית על ניהול פרויקטים, תיאום בין צוותים והבטחת עמידה ביעדים ובתקציבים.",
 };
 
 const isMobile = window.innerWidth < 768;
@@ -47,6 +49,7 @@ useEffect(() => {
   if (showIcon) {
     const timer = setTimeout(() => {
        onAnimationsDone();
+        setAllowLogoHover(true);
     }, 1500); // adjust to your animation length
     return () => clearTimeout(timer);
   }
@@ -75,6 +78,14 @@ useEffect(() => {
         animate={{ scale: [1.1, 1.2, 1.1] }}
         transition={{ repeat: 1, duration: 0.7, ease: "easeInOut" }}
         onAnimationComplete={() => setShowIcon(true)}
+        onMouseEnter={() => {
+    if (!isMobile && allowLogoHover) setHovered("commander");
+  }}
+  onMouseLeave={() => {
+    if (!isMobile && allowLogoHover) setHovered(null);
+  }}
+  style={{ cursor: !isMobile && allowLogoHover ? "pointer" : "default" }}
+
       />
 
       {/* Bursting icon - manually placed */}

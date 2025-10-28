@@ -86,20 +86,20 @@ const videos = [
     type: "explosion",
   }
   ,
-  {
-    id: 7,
-    title: "סרטון רוחבי",
-    src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
-    orientation: "landscape",
-    type: "explosion",
-  },
-  {
-      id: 8,
-    title: "סרטון רוחבי",
-    src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
-    orientation: "landscape",
-    type:"rekem",
-  }
+  // {
+  //   id: 7,
+  //   title: "סרטון רוחבי",
+  //   src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
+  //   orientation: "landscape",
+  //   type: "explosion",
+  // },
+  // {
+  //     id: 8,
+  //   title: "סרטון רוחבי",
+  //   src: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
+  //   orientation: "landscape",
+  //   type:"rekem",
+  // }
 
 ];
 export default function MultimediaPage() {
@@ -168,7 +168,7 @@ export default function MultimediaPage() {
   return (
     <div className="multimedia-wrapper">
       {/* Filter bar */}
-      <div className="filter-bar">
+      {/* <div className="filter-bar">
         {[
           { key: "all", label: "הכל" },
           // { key: "landscape", label: "סרטון רוחבי" },
@@ -187,7 +187,7 @@ export default function MultimediaPage() {
             {item.label}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* Video grid */}
       <div className="video-grid">

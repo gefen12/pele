@@ -30,7 +30,7 @@ const images = Object.entries(imageModules)
         top: '20vh',
         left: '27vw',
         title: 'לומדת קטלנית',
-        description: 'לומדת קטלנית מכינה את הלוחם למבחן הקטלנית ולשימוש הכלי בשטח',
+        description: 'לומדת קטלנית מכינה את הלוחם למבחן הקטלנית ולשימוש הכלי בשטח.',
         tech: 'React, CSS',
         codeLink: 'https://github.com/gefen12/my-app.git',
       },
@@ -40,7 +40,7 @@ const images = Object.entries(imageModules)
         top: '20vh',
         left: '53vw',
         title: 'לומדת תלב',
-        description: 'Project 2 Description',
+        description: 'לומדת תל"ב אחראית על יצירת תקן לאיכות בהדרכה של לוחמים ומפקדים בבהל"צ.',
         tech: 'React, CSS',
         codeLink: 'https://github.com/gefen12/dragon-lomda.git',
       },
@@ -106,7 +106,7 @@ const images = Object.entries(imageModules)
         >
           <img src={proj.img} alt={proj.title} className="dev-img" />
 
-          <div className="overlay-box overlay-left">
+          <div className="overlay-box overlay-left ">
             <h3>{proj.title}</h3>
             <p>{proj.description}</p>
           </div>
