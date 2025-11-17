@@ -70,3 +70,23 @@
     padding: 0.8rem 1.5rem;
   }
 }
+.coming-soon-img {
+  position: fixed;
+  bottom: 20px;   /* מרחק מהרצפה */
+  right: 20px;    /* מרחק מצד ימין */
+  width: 260px;   /* גודל מותאם – תשני לפי ה-SVG שלך */
+  z-index: 9999;  /* מעל הכול */
+  animation: bubblePop 0.25s ease-out;
+}
+
+/* אנימציה חמודה */
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
